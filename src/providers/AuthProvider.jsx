@@ -85,13 +85,13 @@ const AuthProvider = ({ children }) => {
   }, [regiSuccess, profileUpdate]);
 
   // load the estate data
-  useEffect(() => {
-    const currentPropertyArr = getPropertyIds(user?.email);
-    setCartNumber(currentPropertyArr.length);
-    fetch("/residents.json")
-      .then((data) => data.json())
-      .then((data) => setEstates(data));
-  }, []);
+  // useEffect(() => {
+  //   const currentPropertyArr = getPropertyIds(user?.email);
+  //   setCartNumber(currentPropertyArr.length);
+  //   fetch("/residents.json")
+  //     .then((data) => data.json())
+  //     .then((data) => setEstates(data));
+  // }, []);
 
   const authInfo = {
     user,

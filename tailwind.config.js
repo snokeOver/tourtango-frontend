@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   darkMode: "selector",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      xs: "410px",
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         poppins: '"Poppins", sans-serif',

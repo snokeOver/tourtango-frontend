@@ -194,8 +194,31 @@ const NavBar = () => {
         <div className="lg:hidden">
           <RingLoading />
         </div>
+      ) : !user ? (
+        <div className="navbar-center hidden xs:flex lg:hidden">
+          <ul className="menu menu-horizontal px-1">
+            <li className="relative">
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  `${
+                    isActive
+                      ? "text-yellow-400 border-b border-yellow-400"
+                      : "hover:text-yellow-400 "
+                  } mr-1`
+                }
+              >
+                Cart
+              </NavLink>
+
+              <div className="absolute right-1 -top-0 navbar-badge bg-primary hover:bg-primary rounded-full font-semibold flex justify-center">
+                <span>{cartNumber}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       ) : (
-        <div className="navbar-center lg:hidden">
+        <div className="navbar-center  lg:hidden">
           <ul className="menu menu-horizontal px-1">
             <li className="relative">
               <NavLink

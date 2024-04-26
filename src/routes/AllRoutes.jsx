@@ -7,6 +7,8 @@ import Login from "../pages/Login";
 import Cart from "../pages/Cart";
 import Register from "../pages/Register";
 import MainLayouts from "../layouts/MainLayouts";
+import PrivateRoutes from "./PrivateRoutes";
+import PublicRoutes from "./PublicRoutes";
 
 const router = createBrowserRouter([
   {
@@ -50,33 +52,29 @@ const router = createBrowserRouter([
       //      </PrivateRoutes>
       //    ),
       //  },
-      //  {
-      //    path: "/cart",
-      //    element: (
-      //      <PrivateRoutes>
-      //        <Cart />
-      //      </PrivateRoutes>
-      //    ),
-      //  },
-      //  {
-      //    path: "/login",
-      //    element: (
-      //      <PublicRoutes>
-      //        <Login />
-      //      </PublicRoutes>
-      //    ),
-      //  },
-      //  {
-      //    path: "/register",
-      //    element: (
-      //      <PublicRoutes>
-      //        <Register />
-      //      </PublicRoutes>
-      //    ),
-      //  },
       {
-        path: "*",
-        element: <NotFound />,
+        path: "/cart",
+        element: (
+          <PrivateRoutes>
+            <Cart />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <PublicRoutes>
+            <Login />
+          </PublicRoutes>
+        ),
+      },
+      {
+        path: "/register",
+        element: (
+          <PublicRoutes>
+            <Register />
+          </PublicRoutes>
+        ),
       },
     ],
   },

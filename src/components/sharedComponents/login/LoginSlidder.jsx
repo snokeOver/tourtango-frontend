@@ -1,0 +1,50 @@
+import { useEffect, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Autoplay, Pagination } from "swiper/modules";
+
+const LoginSlidder = () => {
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    fetch("/loginSliderImages.json")
+      .then((result) => result.json())
+      .then((images) => setImages(images));
+  }, []);
+  return (
+    <>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination]}
+        className="mySwiper rounded-bl-md rounded-r-[2.5rem] rounded-tl-[2.5rem] w-[20rem] md:w-[25rem] lg:w-[35rem] h-64 md:h-52 xl:h-72"
+      >
+        {images.map((image) => (
+          <SwiperSlide key={image.id}>
+            <img
+              src={image.image_url}
+              alt={image.title}
+              className="w-full h-auto"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black to-black opacity-30"></div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
+  );
+};
+
+export default LoginSlidder;

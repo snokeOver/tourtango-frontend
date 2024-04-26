@@ -17,7 +17,7 @@ const Footer = () => {
     setToastMsg("");
   }, [toastMsg]);
   return (
-    <footer className=" p-10 bg-blue-100 dark:bg-base-100 text-base-content">
+    <footer className=" p-10 bg-blue-100 dark:bg-base-100 text-base-content rounded-t-[2rem] md:rounded-t-[3rem] lg:rounded-t-[3.5rem] border-t-2 border-blue-500 dark:border-pink-500">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 ">
         <div className="footer  flex justify-center">
           <nav>
