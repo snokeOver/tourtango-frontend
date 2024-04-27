@@ -9,6 +9,8 @@ import Register from "../pages/Register";
 import MainLayouts from "../layouts/MainLayouts";
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
+import UserProfile from "../pages/UserProfile";
+import SpotDetails from "../pages/SpotDetails";
 
 const router = createBrowserRouter([
   {
@@ -28,30 +30,23 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      //  {
-      //    path: "/update-profile",
-      //    element: (
-      //      <PrivateRoutes>
-      //        <UpdateProfile />
-      //      </PrivateRoutes>
-      //    ),
-      //  },
-      //  {
-      //    path: "/user-profile",
-      //    element: (
-      //      <PrivateRoutes>
-      //        <UserProfile />
-      //      </PrivateRoutes>
-      //    ),
-      //  },
-      //  {
-      //    path: "/estate-details/:id",
-      //    element: (
-      //      <PrivateRoutes>
-      //        <EstateDetails />
-      //      </PrivateRoutes>
-      //    ),
-      //  },
+
+      {
+        path: "/user-profile",
+        element: (
+          <PrivateRoutes>
+            <UserProfile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/estate-details/:id",
+        element: (
+          <PrivateRoutes>
+            <SpotDetails />
+          </PrivateRoutes>
+        ),
+      },
       {
         path: "/cart",
         element: (

@@ -84,7 +84,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <ToastContainer theme={currTheme} />
+      <ToastContainer theme={currTheme} autoClose={2600} />
     </footer>
   );
 };

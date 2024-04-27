@@ -100,20 +100,6 @@ const NavBar = () => {
                   Profile
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/update-profile"
-                  className={({ isActive }) =>
-                    `${
-                      isActive
-                        ? "text-yellow-400 border-b border-yellow-400"
-                        : "hover:text-yellow-400 "
-                    } mr-1`
-                  }
-                >
-                  Update Profile
-                </NavLink>
-              </li>
             </>
           )}
           <li className="relative hidden lg:block">
@@ -265,10 +251,42 @@ const NavBar = () => {
                   onError={handleImageError}
                 />
                 {isHovering && (
-                  <div className="absolute bg-base-100 top-14 -left-28 text-xs text-left shadow-md py-5 px-4 rounded-lg z-10">
+                  <div className="absolute bg-base-100 top-10 -left-16 text-xs text-left shadow-md py-5 px-4 rounded-lg z-10">
                     <h3> {user.displayName}</h3>
+                    <h3 className="mt-1"> {user.email || "<Private_Email>"}</h3>
                     <div className="divider my-1"></div>
-                    <h3> {user.email || "<Private_Email>"}</h3>
+                    <div className=" w-full">
+                      <NavLink
+                        to="/user-profile"
+                        className={({ isActive }) =>
+                          `${
+                            isActive
+                              ? "text-pink-400 border-b border-pink-400"
+                              : "hover:text-pink-400 "
+                          } w-full`
+                        }
+                      >
+                        Profile
+                      </NavLink>
+                    </div>
+                    <div className="w-full my-2 relative">
+                      <NavLink
+                        to="/cart"
+                        className={({ isActive }) =>
+                          `${
+                            isActive
+                              ? "text-pink-400 border-b border-pink-400"
+                              : "hover:text-pink-400 "
+                          } mr-1`
+                        }
+                      >
+                        Cart
+                      </NavLink>
+
+                      <div className="absolute right-1 -top-0 navbar-badge bg-primary hover:bg-primary rounded-full font-semibold flex justify-center">
+                        <span>{cartNumber}</span>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

@@ -30,7 +30,7 @@ const LoginSlidder = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination]}
-        className="mySwiper rounded-bl-md rounded-r-[2.5rem] rounded-tl-[2.5rem] w-[20rem] md:w-[25rem] lg:w-[35rem] h-64 md:h-52 xl:h-72"
+        className="mySwiper rounded-bl-md rounded-r-[3.5rem] rounded-tl-[3.5rem] rounded-tr-md w-[20rem] md:w-[25rem] lg:w-[35rem] h-40 md:h-56 xl:h-72"
       >
         {images.map((image) => (
           <SwiperSlide key={image.id}>

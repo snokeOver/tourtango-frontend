@@ -284,7 +284,7 @@ const Register = () => {
                         <input
                           type="text"
                           name="name"
-                          placeholder="name@domain.com"
+                          placeholder="name"
                           value={formData.name || ""}
                           className="grow placeholder-gray-400 text-sm"
                           onChange={handleChange}
