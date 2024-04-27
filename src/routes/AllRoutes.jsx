@@ -11,6 +11,9 @@ import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
 import UserProfile from "../pages/UserProfile";
 import SpotDetails from "../pages/SpotDetails";
+import TourSpots from "../pages/TourSpots";
+import AddSpot from "../pages/AddSpot";
+import MyList from "../pages/MyList";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +43,31 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/estate-details/:id",
+        path: "/tour-spots",
+        element: (
+          <PrivateRoutes>
+            <TourSpots />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/my-list",
+        element: (
+          <PrivateRoutes>
+            <MyList />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/add-spot",
+        element: (
+          <PrivateRoutes>
+            <AddSpot />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/spot-details/:id",
         element: (
           <PrivateRoutes>
             <SpotDetails />

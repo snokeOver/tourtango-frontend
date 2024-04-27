@@ -65,7 +65,7 @@ const NavBar = () => {
           About
         </NavLink>
       </li>
-      <li>
+      <li className="lg:hidden">
         <NavLink
           to="/contact"
           className={({ isActive }) =>
@@ -79,6 +79,20 @@ const NavBar = () => {
           Contact
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/tour-spots"
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "text-yellow-400 border-b border-yellow-400"
+                : "hover:text-yellow-400 "
+            } mr-1`
+          }
+        >
+          Tour Spots
+        </NavLink>
+      </li>
 
       {loading || pageLoading ? (
         <RingLoading />
@@ -88,7 +102,7 @@ const NavBar = () => {
             <>
               <li>
                 <NavLink
-                  to="/user-profile"
+                  to="/add-spot"
                   className={({ isActive }) =>
                     `${
                       isActive
@@ -97,7 +111,21 @@ const NavBar = () => {
                     } mr-1`
                   }
                 >
-                  Profile
+                  Add Spot
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/my-list"
+                  className={({ isActive }) =>
+                    `${
+                      isActive
+                        ? "text-yellow-400 border-b border-yellow-400"
+                        : "hover:text-yellow-400 "
+                    } mr-1`
+                  }
+                >
+                  My List
                 </NavLink>
               </li>
             </>

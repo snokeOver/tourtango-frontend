@@ -30,3 +30,8 @@
     ),
     url("https://i.ibb.co/Hr63JfQ/sketch-1.jpg");
 }
+
+/* Custom style at Text area */
+textarea {
+  padding-top: 0.8rem;
+}

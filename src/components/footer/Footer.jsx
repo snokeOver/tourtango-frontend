@@ -74,10 +74,7 @@ const Footer = () => {
         <SocialLinks />
         <div className="flex flex-col md:flex-row gap-5 justify-between  w-full">
           <aside className="text-xs">
-            <p>
-              Copyright © {new Date().getFullYear()} - All right reserved by
-              TourTango
-            </p>
+            <p>© TourTango - {new Date().getFullYear()} - All right reserved</p>
           </aside>
           <Link to="/" className="text-3xl font-semibold font-rubik">
             <SiteLogo />

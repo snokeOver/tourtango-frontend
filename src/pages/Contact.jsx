@@ -132,7 +132,7 @@ const Contact = () => {
                     rows={6}
                     value={formData.message || ""}
                     onChange={handleChange}
-                    placeholder="Write your message here"
+                    placeholder="Write your message here . . . "
                     className="input input-bordered h-auto placeholder-gray-400 text-sm"
                     required
                   />

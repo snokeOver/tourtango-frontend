@@ -125,9 +125,9 @@ const Login = () => {
 
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <title>Login | TourTango</title>
-      </Helmet> */}
+      </Helmet>
       <div className=" container  bg-base-100 mx-auto">
         <div className="hero  rounded-xl flex flex-col md:flex-row-reverse">
           <div className="hero-content  w-full flex-col flex-1">
