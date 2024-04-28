@@ -14,6 +14,7 @@ import SpotDetails from "../pages/SpotDetails";
 import TourSpots from "../pages/TourSpots";
 import AddSpot from "../pages/AddSpot";
 import MyList from "../pages/MyList";
+import SpotsByCountry from "../pages/SpotsByCountry";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/tour-spots",
         element: <TourSpots />,
+      },
+      {
+        path: "/spots-by-country/:country",
+        element: <SpotsByCountry />,
       },
       {
         path: "/my-list",

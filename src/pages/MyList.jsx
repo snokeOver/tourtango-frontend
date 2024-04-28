@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const MyList = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
-  const { user, btnLoading, setBtnLoading } = useContext(AuthContext);
+  const { user, setBtnLoading } = useContext(AuthContext);
   const [loadedSpots, setLoadedSpot] = useState([]);
   const [pageLoading, setPageLoading] = useState(false);
   const [pageUpdate, setPageUpdate] = useState(false);
