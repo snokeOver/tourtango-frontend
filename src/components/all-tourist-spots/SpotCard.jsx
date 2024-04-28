@@ -46,14 +46,14 @@ const SpotCard = ({ spot, handleShowDetailsBtn, handleAddCartButton }) => {
         </div>
         <div className="pt-3 flex gap-4">
           <button
-            onClick={() => handleShowDetailsBtn(spot.id)}
+            onClick={() => handleShowDetailsBtn(spot._id)}
             className="btn btn-primary btn-outline flex-1   py-3 mb-3  rounded-md"
           >
             <BsFillEyeFill className="text-xl" />
             View Details
           </button>
           <button
-            onClick={() => handleAddCartButton(spot.id)}
+            onClick={() => handleAddCartButton(spot._id)}
             className="btn btn-secondary btn-outline flex-1   py-3 mb-3  rounded-md"
           >
             <BsCart4 className=" text-xl" />

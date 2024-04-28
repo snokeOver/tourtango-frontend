@@ -6,7 +6,7 @@ const NotFound = () => {
       <Helmet>
         <title>Not Found | TourTango</title>
       </Helmet>
-      <div className=" xl:my-28 container bg-base-100 mx-auto p-5 md:p-10 min-h-screen">
+      <div className=" xl:my-20 container bg-base-100 mx-auto p-5 md:p-10 min-h-screen">
         <div className="hero py-10 rounded-lg bg-base-200">
           <div className="hero-content text-center">
             <div className="max-w-md">
