@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const AddSpot = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
-  const { user } = useContext(AuthContext);
+  const { user, setBtnLoading } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     uid: "",
     name: "",
@@ -66,11 +66,13 @@ const AddSpot = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+          setBtnLoading(true);
           const response = await axios.post(
             `${baseURL}/api/spots/add`,
             postData
           );
           if (response.data) {
+            setBtnLoading(false);
             Swal.fire({
               title: "Saved!",
               text: "Your tourist spot has been saved.",
@@ -78,9 +80,11 @@ const AddSpot = () => {
             });
           } else {
             console.log(response.data);
+            setBtnLoading(false);
           }
         } catch (err) {
           console.log(err.response);
+          setBtnLoading(false);
         }
       }
     });
