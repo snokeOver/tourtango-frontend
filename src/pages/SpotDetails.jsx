@@ -8,8 +8,12 @@ import { IoAirplaneOutline } from "react-icons/io5";
 import { BsCart4 } from "react-icons/bs";
 import PageSkeleton from "../components/sharedComponents/PageSkeleton";
 import { Helmet } from "react-helmet-async";
-import { getPropertyIds, storePropertyId } from "../services/storeCartItems";
+
 import axios from "axios";
+import {
+  getCartIdsFromLST,
+  storeCartIdsToLST,
+} from "../services/storeCartItems";
 
 const SpotDetails = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -61,13 +65,13 @@ const SpotDetails = () => {
       navigate("/login");
       window.scrollTo(0, 0);
     }
-    const result = getPropertyIds(user?.email);
+    const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
-      return setToastMsg("Property Already Added To Cart  !");
+      return setToastMsg("Tour Spot Already Added To Cart  !");
     } else {
-      storePropertyId(user?.email, id);
+      storeCartIdsToLST(user?.uid, id);
       setCartNumber(result.length + 1);
-      return setToastMsg("Property added succesfully  !");
+      return setToastMsg("Tour Spot added succesfully  !");
     }
   };
 
@@ -230,7 +234,7 @@ const SpotDetails = () => {
                 >
                   <button
                     onClick={() => handleAddCartButton(spotToShow._id)}
-                    className="btn btn-primary flex-1   py-3 mb-3  rounded-md"
+                    className="btn  hover:from-pink-500 hover:to-indigo-400 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-3  border-none text-gray-200 flex-1   py-3 mb-3  rounded-md"
                   >
                     <BsCart4 className=" text-xl" />
                     Add To Cart

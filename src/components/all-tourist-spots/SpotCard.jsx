@@ -30,7 +30,7 @@ const SpotCard = ({ spot, handleShowDetailsBtn, handleAddCartButton }) => {
         </div>
         <div className="divider p-0 m-0"></div>
 
-        <div className="grid grid-cols-3  py-3 text-message-color">
+        <div className="grid grid-cols-3 flex-grow  py-3 text-message-color">
           <div className="flex flex-col items-center gap-2 text-center">
             <FaLocationDot className="text-lg" />
             <h3>{spot.location}</h3>

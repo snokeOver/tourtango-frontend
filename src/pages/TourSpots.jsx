@@ -2,46 +2,29 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import SectionTitle from "../components/sharedComponents/SectionTitle";
-import axios from "axios";
+
 import SpotCard from "../components/all-tourist-spots/SpotCard";
 import { AuthContext } from "../providers/AuthProvider";
-import { getPropertyIds, storePropertyId } from "../services/storeCartItems";
+
 import PageSkeleton from "../components/sharedComponents/PageSkeleton";
+import {
+  getCartIdsFromLST,
+  storeCartIdsToLST,
+} from "../services/storeCartItems";
 
 const TourSpots = () => {
-  const baseURL = import.meta.env.VITE_BASE_URL;
-  const { user, setCartNumber, setToastMsg } = useContext(AuthContext);
-
-  const [pageLoading, setPageLoading] = useState(false);
-
-  const [spotsArr, setSpotsArr] = useState([]);
+  const {
+    user,
+    setCartNumber,
+    setToastMsg,
+    spotsArr,
+    setSpotsArr,
+    pageLoading,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  // Get all the tourist spot from the database
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${baseURL}/api/spots`);
-        if (response.data) {
-          setSpotsArr(response.data);
-          setPageLoading(false);
-        } else {
-          console.log(response.data);
-          setPageLoading(false);
-        }
-      } catch (err) {
-        console.log(err.response);
-        setPageLoading(false);
-      }
-    };
-    if (!pageLoading) {
-      setPageLoading(true);
-      fetchData();
-    }
-  }, [user]);
-
-  // handle the show property button
+  // handle the show Tour Spot button
   const handleShowDetailsBtn = (id) => {
     navigate(`/spot-details/${id}`);
   };
@@ -52,14 +35,31 @@ const TourSpots = () => {
       navigate("/login");
       return window.scrollTo(0, 0);
     }
-    const result = getPropertyIds(user?.email);
+    const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
-      return setToastMsg("Property already added to cart  !");
+      return setToastMsg("Tour Spot already added to cart  !");
     } else {
-      storePropertyId(user?.email, id);
+      storeCartIdsToLST(user?.uid, id);
       setCartNumber(result.length + 1);
-      return setToastMsg("Property added succesfully  !");
+      return setToastMsg("Tour Spot added succesfully  !");
     }
+  };
+
+  // handle the filter
+  const handleFilterSpot = (filterOps) => {
+    let newArr = [...spotsArr];
+
+    if (filterOps === "cost") {
+      newArr.sort(
+        (a, b) =>
+          parseInt(a.cost.replace(/\D/g, ""), 10) -
+          parseInt(b.cost.replace(/\D/g, ""), 10)
+      );
+    } else if (filterOps === "popularity") {
+      newArr.sort((a, b) => b.visitors_per_year - a.visitors_per_year);
+    }
+
+    setSpotsArr(newArr);
   };
 
   return (
@@ -67,11 +67,43 @@ const TourSpots = () => {
       {pageLoading ? (
         <PageSkeleton />
       ) : (
-        <div className="container mx-auto px-2 w-full overflow-hidden">
+        <div className="container bg-base-100  mx-auto px-2 w-full overflow-hidden">
           <SectionTitle
             title="Popular Tourist Spot in Asia"
             subTitle="Asia is a continent brimming with diverse and breathtaking tourist destinations, vibrant cultures."
           />
+          {/* Sort Functionality */}
+          <div className="flex justify-center text-center my-5">
+            <ul className="menu w-fit">
+              <li className=" ">
+                <details className=" rounded-md text-gray-50 font-semibold ">
+                  <summary className="px-16 md:px-10 bg-primary dark:hover:bg-green-600 hover:bg-blue-600 mb-1">
+                    Sorted By
+                  </summary>
+                  <ul className="bg-gray-600  mx-auto  rounded-t-none rounded-b-lg py-2">
+                    <li
+                      className=" hover:border-b-2 rounded-lg hover:border-blue-500 dark:hover:hover:border-green-500 mr-2"
+                      onClick={() => handleFilterSpot("all")}
+                    >
+                      <a>All</a>
+                    </li>
+                    <li
+                      className=" hover:border-b-2 rounded-lg hover:border-blue-500 dark:hover:hover:border-green-500 mr-2"
+                      onClick={() => handleFilterSpot("cost")}
+                    >
+                      <a>Average Cost</a>
+                    </li>
+                    <li
+                      className=" hover:border-b-2 rounded-lg hover:border-blue-500 dark:hover:hover:border-green-500 mr-2"
+                      onClick={() => handleFilterSpot("popularity")}
+                    >
+                      <a>Popularity</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </div>
           <div className="text-center bg-base-100 py-3 px-1 md:p-3 md:py-14">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 md:px-5 group">
               {spotsArr.map((spot) => (

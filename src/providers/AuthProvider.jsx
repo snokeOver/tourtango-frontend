@@ -10,11 +10,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../services/GAuth.js";
-import { getPropertyIds } from "../services/storeCartItems.js";
+import { getCartIdsFromLST } from "../services/storeCartItems.js";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const [user, setUser] = useState(null);
   const [estates, setEstates] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +27,7 @@ const AuthProvider = ({ children }) => {
   const [logOutSuccess, setLogOutSuccess] = useState(false);
   const [currTheme, setCurrTheme] = useState("");
   const [profileUpdate, setProfileUpdate] = useState(false);
-
+  const [spotsArr, setSpotsArr] = useState([]);
   const [toastMsg, setToastMsg] = useState("");
 
   const [cartNumber, setCartNumber] = useState(0);
@@ -33,8 +35,29 @@ const AuthProvider = ({ children }) => {
   // Update the cart number
   useEffect(() => {
     if (user) {
-      const currentNumber = getPropertyIds(user?.email);
+      const currentNumber = getCartIdsFromLST(user?.uid);
       setCartNumber(currentNumber.length);
+    }
+
+    // Get all the tourist spot from the database
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${baseURL}/api/spots`);
+        if (response.data) {
+          setSpotsArr(response.data);
+          setPageLoading(false);
+        } else {
+          console.log(response.data);
+          setPageLoading(false);
+        }
+      } catch (err) {
+        console.log(err.response);
+        setPageLoading(false);
+      }
+    };
+    if (!pageLoading) {
+      setPageLoading(true);
+      fetchData();
     }
   }, [user]);
 
@@ -85,15 +108,6 @@ const AuthProvider = ({ children }) => {
     });
   }, [regiSuccess, profileUpdate]);
 
-  // load the estate data
-  // useEffect(() => {
-  //   const currentPropertyArr = getPropertyIds(user?.email);
-  //   setCartNumber(currentPropertyArr.length);
-  //   fetch("/residents.json")
-  //     .then((data) => data.json())
-  //     .then((data) => setEstates(data));
-  // }, []);
-
   const authInfo = {
     user,
     setUser,
@@ -123,6 +137,8 @@ const AuthProvider = ({ children }) => {
     setToastMsg,
     btnLoading,
     setBtnLoading,
+    spotsArr,
+    setSpotsArr,
   };
   // console.log("inside context:", user?.photoURL);
   return (
