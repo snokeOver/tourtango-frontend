@@ -4,8 +4,15 @@ import ThemeButton from "./ThemeButton";
 import RingLoading from "../sharedComponents/RingLoading";
 import { AuthContext } from "../../providers/AuthProvider";
 import SiteLogo from "../sharedComponents/SiteLogo";
+import axios from "axios";
+import { deleteCurrTheme, getCurrentTheme } from "../../services/themeStorage";
+import {
+  deleteAllCartIdsFromLST,
+  getCartIdsFromLST,
+} from "../../services/storeCartItems";
 
 const NavBar = () => {
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const {
     loading,
     user,
@@ -22,15 +29,40 @@ const NavBar = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   // Handle log out button
-  const handleLogOut = () => {
-    logOut()
-      .then((result) => {
-        setUser(null);
-        setLogOutSuccess(true);
+  const handleLogOut = async () => {
+    // Save the user preferences like theme-mood, cart items into MongoDb
+
+    const postData = {
+      uid: user.uid,
+      theme: getCurrentTheme(),
+      cartIds: getCartIdsFromLST(user?.uid),
+    };
+
+    try {
+      const response = await axios.post(
+        `${baseURL}/api/user-preference`,
+        postData
+      );
+      if (response.data) {
+        deleteAllCartIdsFromLST(user?.uid);
         setCartNumber(0);
-        navigate("/login");
-      })
-      .catch((err) => console.log(err.message));
+        deleteCurrTheme();
+
+        // Perform the log out sequence
+        logOut()
+          .then((result) => {
+            setUser(null);
+            setLogOutSuccess(true);
+            setCartNumber(0);
+            navigate("/login");
+          })
+          .catch((err) => console.log(err.message));
+      } else {
+        console.log(response.data);
+      }
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   // define the navlinks

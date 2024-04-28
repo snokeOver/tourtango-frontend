@@ -17,7 +17,8 @@ import {
 
 const SpotDetails = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
-  const { user, setCartNumber, setToastMsg } = useContext(AuthContext);
+  const { user, setCartNumber, setToastMsg, storeUserPreference } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const [spotToShow, setSpotToShow] = useState({});
   const { id } = useParams();
@@ -71,6 +72,7 @@ const SpotDetails = () => {
     } else {
       storeCartIdsToLST(user?.uid, id);
       setCartNumber(result.length + 1);
+      storeUserPreference();
       return setToastMsg("Tour Spot added succesfully  !");
     }
   };

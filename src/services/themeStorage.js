@@ -6,9 +6,13 @@ const getCurrentTheme = () => {
   else return "";
 };
 
+const deleteCurrTheme = () => {
+  localStorage.removeItem(themeStoreName);
+};
+
 const storeCurrentTheme = (theme) => {
   localStorage.removeItem(themeStoreName);
   localStorage.setItem(themeStoreName, JSON.stringify(theme));
 };
 
-export { getCurrentTheme, storeCurrentTheme };
+export { getCurrentTheme, storeCurrentTheme, deleteCurrTheme };

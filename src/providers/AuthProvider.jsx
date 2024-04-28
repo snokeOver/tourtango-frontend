@@ -10,8 +10,16 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../services/GAuth.js";
-import { getCartIdsFromLST } from "../services/storeCartItems.js";
+import {
+  deleteCartIdsFromLST,
+  getCartIdsFromLST,
+  storeCartIdsToLST,
+} from "../services/storeCartItems.js";
 import axios from "axios";
+import {
+  getCurrentTheme,
+  storeCurrentTheme,
+} from "../services/themeStorage.js";
 
 export const AuthContext = createContext();
 
@@ -32,11 +40,64 @@ const AuthProvider = ({ children }) => {
 
   const [cartNumber, setCartNumber] = useState(0);
 
+  const setCart = () => {
+    const currentNumber = getCartIdsFromLST(user?.uid);
+    setCartNumber(currentNumber.length);
+  };
+
+  // function to Save the user preferences like theme-mood, cart items into MongoDb
+  const storeUserPreference = async () => {
+    const postData = {
+      uid: user.uid,
+      theme: getCurrentTheme(),
+      cartIds: getCartIdsFromLST(user?.uid),
+    };
+
+    try {
+      const response = await axios.post(
+        `${baseURL}/api/user-preference`,
+        postData
+      );
+      if (response.data) {
+        console.log(response.data);
+      } else {
+        console.log(response.data);
+      }
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
   // Update the cart number
   useEffect(() => {
     if (user) {
-      const currentNumber = getCartIdsFromLST(user?.uid);
-      setCartNumber(currentNumber.length);
+      // get user preference from DB
+
+      const fetchUserPreference = async () => {
+        try {
+          const response = await axios.get(
+            `${baseURL}/api/user-preference/${user.uid}`
+          );
+          if (response.data) {
+            setCurrTheme(response.data.theme);
+            storeCurrentTheme(response.data.theme);
+            deleteCartIdsFromLST(user?.uid);
+            response.data.cartIds.map((id) => storeCartIdsToLST(user?.uid, id));
+            setCart();
+          } else {
+            console.log(response.data);
+            setCart();
+            setCurrTheme("dark");
+            storeCurrentTheme("dark");
+          }
+        } catch (err) {
+          console.log(err.response);
+          setCart();
+          setCurrTheme("dark");
+          storeCurrentTheme("dark");
+        }
+      };
+      fetchUserPreference();
     }
 
     // Get all the tourist spot from the database
@@ -139,6 +200,7 @@ const AuthProvider = ({ children }) => {
     setBtnLoading,
     spotsArr,
     setSpotsArr,
+    storeUserPreference,
   };
   // console.log("inside context:", user?.photoURL);
   return (

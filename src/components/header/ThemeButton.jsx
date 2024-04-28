@@ -1,13 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import {
-  getCurrentTheme,
-  storeCurrentTheme,
-} from "../../services/themeStorage";
+import { useContext, useEffect } from "react";
+import { storeCurrentTheme } from "../../services/themeStorage";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const ThemeButton = () => {
-  const { currTheme, setCurrTheme } = useContext(AuthContext);
-  const defaultTheme = "dark";
+  const { currTheme, setCurrTheme, storeUserPreference } =
+    useContext(AuthContext);
 
   const handleThemeButton = () => {
     const newTheme = currTheme === "light" ? "dark" : "light";
@@ -17,6 +14,7 @@ const ThemeButton = () => {
 
   useEffect(() => {
     if (currTheme) {
+      storeUserPreference();
       const htmlElement = document.querySelector("html");
       htmlElement.setAttribute("data-theme", currTheme);
       if (currTheme === "light") {
@@ -28,13 +26,6 @@ const ThemeButton = () => {
       }
     }
   }, [currTheme]);
-
-  useEffect(() => {
-    const theme = getCurrentTheme() || defaultTheme;
-
-    setCurrTheme(theme);
-    storeCurrentTheme(theme);
-  }, []);
 
   return (
     <label className="swap swap-rotate px-2 rounded-lg text-gray-600 dark:text-yellow-300 hover:text-gray-700 hover:dark:text-yellow-400">

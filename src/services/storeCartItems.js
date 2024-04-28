@@ -14,6 +14,11 @@ const deleteCartIdsFromLST = (cartStorageName, id) => {
   }
 };
 
+// delete all Ids from the localstorage
+const deleteAllCartIdsFromLST = (cartStorageName) => {
+  localStorage.removeItem(cartStorageName);
+};
+
 // Store the Tour Spot Ids if it is not in the storage
 const storeCartIdsToLST = (cartStorageName, id) => {
   const result = getCartIdsFromLST(cartStorageName);
@@ -23,4 +28,9 @@ const storeCartIdsToLST = (cartStorageName, id) => {
   }
 };
 
-export { getCartIdsFromLST, storeCartIdsToLST, deleteCartIdsFromLST };
+export {
+  getCartIdsFromLST,
+  storeCartIdsToLST,
+  deleteCartIdsFromLST,
+  deleteAllCartIdsFromLST,
+};

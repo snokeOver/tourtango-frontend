@@ -20,6 +20,7 @@ const TourSpots = () => {
     spotsArr,
     setSpotsArr,
     pageLoading,
+    storeUserPreference,
   } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const TourSpots = () => {
     } else {
       storeCartIdsToLST(user?.uid, id);
       setCartNumber(result.length + 1);
+      storeUserPreference();
       return setToastMsg("Tour Spot added succesfully  !");
     }
   };

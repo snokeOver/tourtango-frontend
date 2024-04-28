@@ -9,7 +9,7 @@ import {
 import SingleCartItem from "../components/cart/SingleCartItem";
 
 const Cart = () => {
-  const { user, setCartNumber, setToastMsg, spotsArr, setSpotsArr } =
+  const { user, setCartNumber, spotsArr, storeUserPreference } =
     useContext(AuthContext);
   const [selectedSpot, setselectedSpot] = useState([]);
   const [deleteCall, setDeleteCall] = useState(true);
@@ -43,6 +43,7 @@ const Cart = () => {
       if (result.isConfirmed) {
         deleteCartIdsFromLST(user?.uid, id);
         setDeleteCall(true);
+        storeUserPreference();
         Swal.fire({
           title: "Deleted!",
           text: "Cart item deleted succesfully  !",
@@ -74,9 +75,9 @@ const Cart = () => {
       <Helmet>
         <title> Cart | TourTango</title>
       </Helmet>
-      <div className=" container bg-base-100 mx-auto ">
+      <div className=" container bg-base-100 px-3 md:px-5 mx-auto ">
         {/* testing */}
-        <div className="hero py-10 rounded-lg bg-base-200">
+        <div className="hero   py-10 rounded-lg bg-base-200">
           <div className="hero-content text-center flex-col">
             <div className="text-center">
               <h1
