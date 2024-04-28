@@ -35,3 +35,9 @@
 textarea {
   padding-top: 0.8rem;
 }
+
+/* design of table in the cart page */
+.table
+  :where(thead tr, tbody tr:not(:last-child), tbody tr:first-child:last-child) {
+  border-bottom-width: 0px;
+}

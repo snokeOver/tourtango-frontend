@@ -48,6 +48,13 @@ const AddSpot = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
+    const postData = {
+      ...formData,
+      email: formData.email || "",
+      travel_time: `${formData.travel_time} Days`,
+      cost: `$${formData.cost}`,
+    };
+
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -61,7 +68,7 @@ const AddSpot = () => {
         try {
           const response = await axios.post(
             `${baseURL}/api/spots/add`,
-            formData
+            postData
           );
           if (response.data) {
             Swal.fire({
@@ -80,7 +87,6 @@ const AddSpot = () => {
 
     setFormData((prevData) => ({
       ...prevData,
-
       imageUrl: "",
       spot: "",
       country: "",

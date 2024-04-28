@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import ThemeButton from "./ThemeButton";
-import { IoHome } from "react-icons/io5";
 import RingLoading from "../sharedComponents/RingLoading";
 import { AuthContext } from "../../providers/AuthProvider";
 import SiteLogo from "../sharedComponents/SiteLogo";

@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [estates, setEstates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [btnLoading, setBtnLoading] = useState(false);
 
   const [pageLoading, setPageLoading] = useState(false);
   const [regiSuccess, setRegiSuccess] = useState(false);
@@ -120,6 +121,8 @@ const AuthProvider = ({ children }) => {
     setProfileUpdate,
     toastMsg,
     setToastMsg,
+    btnLoading,
+    setBtnLoading,
   };
   // console.log("inside context:", user?.photoURL);
   return (
