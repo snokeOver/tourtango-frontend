@@ -36,7 +36,7 @@ const MarqueeSection = () => {
         <SectionTitle title="Our Happy Customers" />
       </div>
 
-      <div className="text-center  py-3 px-1 md:p-3 md:py-14">
+      <div className="text-center md:container md:mx-auto py-3 px-1 md:p-3 md:py-14">
         <Marquee>
           <div className="flex ">
             {customers.map((cusotmer) => (

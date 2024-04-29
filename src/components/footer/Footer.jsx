@@ -19,66 +19,84 @@ const Footer = () => {
   return (
     <footer className=" p-10 bg-blue-100 dark:bg-base-100 text-base-content rounded-t-[2rem] md:rounded-t-[3rem] lg:rounded-t-[3.5rem] border-t-2 border-blue-500 dark:border-pink-500">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 ">
-        <div className="footer  flex justify-center">
+        <div className="footer  flex md:justify-center">
           <nav>
             <h6 className="footer-title">Services</h6>
-            <a className="link link-hover">Selling</a>
-            <a className="link link-hover">Buying</a>
-            <a className="link link-hover">Marketing</a>
+            <NavLink className="link link-hover" to="#">
+              Tour Location
+            </NavLink>
+            <NavLink className="link link-hover" to="#">
+              Tour Guid
+            </NavLink>
+            <NavLink className="link link-hover" to="#">
+              Tour Booking
+            </NavLink>
+            <NavLink className="link link-hover" to="#">
+              Customer Services
+            </NavLink>
           </nav>
         </div>
-        <div className="footer flex justify-center">
+        <div className="footer flex md:justify-center">
           <nav>
             <h6 className="footer-title">Company</h6>
-            <a className="link link-hover">Our Branches</a>
+
             <NavLink className="link link-hover" to="/about">
               About Us
             </NavLink>
             <NavLink className="link link-hover" to="/contact">
               Contact
             </NavLink>
+            <NavLink className="link link-hover" to="/about">
+              Our Branches
+            </NavLink>
+            <NavLink className="link link-hover" to="#">
+              Terms of use
+            </NavLink>
           </nav>
         </div>
-        <div className="footer flex justify-center">
+        <div className="footer flex md:justify-center">
           <nav>
-            <h6 className="footer-title">Links</h6>
-            <a className="link link-hover">Pricing Plan</a>
-            <a className="link link-hover">Advertising</a>
-            <a className="link link-hover">Testimonials</a>
+            <h6 className="footer-title">Company</h6>
+
+            <NavLink className="link link-hover" to="#">
+              My Account
+            </NavLink>
+            <NavLink className="link link-hover" to="/my-list">
+              My List
+            </NavLink>
+            <NavLink className="link link-hover" to="/cart">
+              Cart
+            </NavLink>
+            <NavLink className="link link-hover" to="#">
+              Promotions
+            </NavLink>
           </nav>
         </div>
-        <div className="footer flex justify-center">
+        <div className="footer flex md:justify-center">
           <nav>
-            <h6 className="footer-title">Legal</h6>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
+            <h6 className="footer-title">Contact Info</h6>
+            <a className=" ">2972 Westheimer Rd. Santa Ana, Illinois 85486</a>
+            <a className=" cursor-pointer text-primary">+(880) 15171-66682</a>
+            <a className=" cursor-pointer ">snokeover@gmail.com</a>
           </nav>
         </div>
       </div>
       <div className="divider py-10"></div>
       <div className="footer footer-center ">
-        <nav className="grid grid-flow-col gap-4">
-          <NavLink className="link link-hover" to="/">
-            Home
-          </NavLink>
-          <div className="divider divider-horizontal"></div>
-          <NavLink className="link link-hover" to="/about">
-            About Us
-          </NavLink>
-          <div className="divider divider-horizontal"></div>
-          <NavLink className="link link-hover" to="/contact">
-            Contact Us
-          </NavLink>
-        </nav>
-        <SocialLinks />
-        <div className="flex flex-col md:flex-row gap-5 justify-between  w-full">
+        <div className="flex flex-col-reverse md:flex-row gap-10 justify-between  w-full">
           <aside className="text-xs">
             <p>© TourTango - {new Date().getFullYear()} - All right reserved</p>
           </aside>
-          <Link to="/" className="text-3xl font-semibold font-rubik">
-            <SiteLogo />
-          </Link>
+          <aside>
+            <div className="mb-3">
+              <Link to="/" className="text-3xl font-semibold font-rubik">
+                <SiteLogo />
+              </Link>
+            </div>
+            <div>
+              <SocialLinks />
+            </div>
+          </aside>
         </div>
       </div>
       <ToastContainer theme={currTheme} autoClose={2600} />

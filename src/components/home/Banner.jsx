@@ -11,6 +11,7 @@ import { IoIosSearch } from "react-icons/io";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
 import { useTypewriter } from "react-simple-typewriter";
+import CountUp from "react-countup";
 
 const Banner = () => {
   const [images, setImages] = useState([]);
@@ -86,6 +87,26 @@ const Banner = () => {
           <span ref={progressContent}></span>
         </div>
       </Swiper>
+      <div className="absolute right-[5%] top-[8%]  z-10 flex flex-col gap-8 ">
+        <div>
+          <h2 className=" inline-block px-2 lg:px-4 py-1 text-gray-100 font-semibold  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20  text-center">
+            <p className="text-sm md:text-xl lg:text-2xl text-gray-900 font-bold">
+              <CountUp end={180} duration={4} />+
+            </p>
+            <p className="text-xs font-normal md:text-lg">Tourist spots</p>
+          </h2>
+        </div>
+      </div>
+      <div className="absolute left-[5%] top-[8%]  z-10 flex flex-col gap-8 ">
+        <div>
+          <h2 className=" inline-block px-2 lg:px-4 py-1 text-gray-100 font-semibold  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20  text-center">
+            <p className="text-sm md:text-xl lg:text-2xl text-gray-900 font-bold">
+              <CountUp end={1500} duration={4} />+
+            </p>
+            <p className="text-xs font-normal md:text-lg">Happy Customers</p>
+          </h2>
+        </div>
+      </div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col gap-8 lg:gap-16 w-[90%]">
         <div className="text-center">
           <h1

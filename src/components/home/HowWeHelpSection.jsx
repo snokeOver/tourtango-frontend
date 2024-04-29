@@ -25,17 +25,17 @@ const HowWeHelpSection = () => {
   }, []);
 
   return (
-    <div className=" px-2 md:px-10 lg:px-28 w-full bg-base-100 mt-10 pb-10 overflow-hidden">
+    <div className=" px-2  w-full bg-base-100 mt-10 pb-10 overflow-hidden">
       <div>
         <h3 className="mt-8 ml-5 text-lg text-center md:text-left">
-          <span>Find,</span>{" "}
-          <span className="text-primary font-semibold">Book</span>{" "}
-          <span className="text-sm">and</span> Go !
+          <span>Find, </span>
+          <span className="text-primary font-semibold">Book </span>
+          <span className="text-sm">and </span> Go !
         </h3>
         <SectionTitle title="How We Can Help Your Journey" />
       </div>
 
-      <div className="text-center  py-3 px-1 md:p-3 md:py-14">
+      <div className="text-center py-3 px-1 md:p-3 md:py-14 md:container md:mx-auto">
         {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {reasons.map((reason) => (
@@ -44,7 +44,7 @@ const HowWeHelpSection = () => {
           </div>
         }
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:container md:mx-auto">
         <div className="relative">
           <div>
             <img
