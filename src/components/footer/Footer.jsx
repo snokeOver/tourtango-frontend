@@ -46,7 +46,7 @@ const Footer = () => {
             <NavLink className="link link-hover" to="/contact">
               Contact
             </NavLink>
-            <NavLink className="link link-hover" to="/about">
+            <NavLink className="link link-hover" to="/branches">
               Our Branches
             </NavLink>
             <NavLink className="link link-hover" to="#">
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
         <div className="footer flex md:justify-center">
           <nav>
-            <h6 className="footer-title">Company</h6>
+            <h6 className="footer-title">Quick Links</h6>
 
             <NavLink className="link link-hover" to="#">
               My Account
@@ -75,7 +75,7 @@ const Footer = () => {
         <div className="footer flex md:justify-center">
           <nav>
             <h6 className="footer-title">Contact Info</h6>
-            <a className=" ">2972 Westheimer Rd. Santa Ana, Illinois 85486</a>
+            <a className=" ">123 Main Street, New York, USA</a>
             <a className=" cursor-pointer text-primary">+(880) 15171-66682</a>
             <a className=" cursor-pointer ">snokeover@gmail.com</a>
           </nav>

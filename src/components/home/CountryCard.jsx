@@ -21,9 +21,9 @@ const CountryCard = ({ country, handleCountryCardBtn }) => {
 
       <div className="card-body">
         <div className="flex justify-between">
-          <h2 className="text-justify font-normal  flex-grow">
+          <h4 className="text-justify font-normal  flex-grow">
             {country.short_description}
-          </h2>
+          </h4>
         </div>
       </div>
     </button>

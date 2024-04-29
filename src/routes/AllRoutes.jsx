@@ -15,6 +15,7 @@ import TourSpots from "../pages/TourSpots";
 import AddSpot from "../pages/AddSpot";
 import MyList from "../pages/MyList";
 import SpotsByCountry from "../pages/SpotsByCountry";
+import Branches from "../pages/Branches";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/branches",
+        element: <Branches />,
       },
       {
         path: "/contact",

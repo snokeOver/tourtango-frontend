@@ -13,11 +13,10 @@ const CustomerCard = ({ customer }) => {
         <h2 className="text-lg font-semibold text-center mb-2">
           {customer.name}
         </h2>
-        <div className="text-justify text-sm">
-          <p>
-            <FaQuoteLeft />
-          </p>
-          <p className="ml-3 mt-1">{customer.speech}</p>
+        <div className="text-justify text-sm flex-grow">
+          <FaQuoteLeft />
+
+          <span className="ml-4 mt-1">{customer.speech}</span>
         </div>
 
         <h5 className=" text-sm bg-primary  rounded-md bg-clip-padding backdrop-filter text-gray-100 py-1 hover:text-gray-800">
