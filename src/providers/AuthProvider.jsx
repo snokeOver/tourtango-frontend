@@ -26,7 +26,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const [user, setUser] = useState(null);
-  const [estates, setEstates] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [btnLoading, setBtnLoading] = useState(false);
 
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
         postData
       );
       if (response.data) {
-        console.log(response.data);
+        // console.log(response.data);
       } else {
         console.log(response.data);
       }
@@ -184,8 +184,6 @@ const AuthProvider = ({ children }) => {
     githubRegister,
     logOutSuccess,
     setLogOutSuccess,
-    estates,
-    setEstates,
     cartNumber,
     setCartNumber,
     currTheme,

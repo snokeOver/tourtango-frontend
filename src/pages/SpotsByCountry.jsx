@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 import SectionTitle from "../components/sharedComponents/SectionTitle";
 
-import SpotCard from "../components/all-tourist-spots/SpotCard";
 import { AuthContext } from "../providers/AuthProvider";
 
 import PageSkeleton from "../components/sharedComponents/PageSkeleton";
@@ -12,6 +11,7 @@ import {
   getCartIdsFromLST,
   storeCartIdsToLST,
 } from "../services/storeCartItems";
+import SpotCardForCountry from "../components/tourist-spots-by-countries/SpotCardForCountry";
 
 const SpotsByCountry = () => {
   const { country } = useParams();
@@ -66,7 +66,7 @@ const SpotsByCountry = () => {
       {pageLoading ? (
         <PageSkeleton />
       ) : (
-        <div className="container bg-base-100  mx-auto px-2 w-full overflow-hidden">
+        <div className="md:container bg-base-100 mx-2 md:mx-auto px-2 w-full overflow-hidden">
           <SectionTitle
             title={`Popular Tourist Spots in ${country}`}
             subTitle={`${country} is a country brimming with diverse and breathtaking tourist destinations, vibrant cultures.`}
@@ -75,7 +75,7 @@ const SpotsByCountry = () => {
           <div className="text-center bg-base-100 py-3 px-1 md:p-3 md:py-14">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 md:px-5 group">
               {newSpotArr.map((spot) => (
-                <SpotCard
+                <SpotCardForCountry
                   key={spot._id}
                   spot={spot}
                   handleShowDetailsBtn={handleShowDetailsBtn}

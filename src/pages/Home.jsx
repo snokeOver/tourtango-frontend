@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../components/home/Banner";
 import MarqueeSection from "../components/home/MarqueeSection";
+import TouristSpotsSection from "../components/home/TouristSpotsSection";
+import CountrySection from "../components/home/CountrySection";
 
 const Home = () => {
   return (
@@ -10,10 +12,13 @@ const Home = () => {
       </Helmet>
       <Banner />
       <div className="md:container mx-auto">
-        {/* <EstateSection /> */} <MarqueeSection />
+        <TouristSpotsSection />
       </div>
+      <MarqueeSection />
       {/* <ChooseUs /> */}
-      <div className="container mx-auto">{/* <OurPartner /> */}</div>
+      <div className="container mx-auto">
+        <CountrySection />
+      </div>
     </div>
   );
 };

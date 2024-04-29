@@ -85,8 +85,8 @@ const SpotDetails = () => {
       <Helmet>
         <title>Spot Details | TourTango</title>
       </Helmet>
-      <div className="container bg-base-100 mx-auto px-5 xl:px-0">
-        <div className="card card-compact w-full   px-4 py-4 work-font">
+      <div className="md:container mx-2 bg-base-100 md:mx-auto">
+        <div className="card card-compact w-full  px-4 py-4">
           {pageLoading ? (
             <div>
               <PageSkeleton />

@@ -2,8 +2,13 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsFillEyeFill, BsCart4 } from "react-icons/bs";
 import { RxAvatar } from "react-icons/rx";
 import { TfiMoney } from "react-icons/tfi";
+import { TiWeatherPartlySunny } from "react-icons/ti";
 
-const SpotCard = ({ spot, handleShowDetailsBtn, handleAddCartButton }) => {
+const SpotCardForCountry = ({
+  spot,
+  handleShowDetailsBtn,
+  handleAddCartButton,
+}) => {
   // Calculate Total price
   const formateTotalVisitors = (visitors) => {
     const formatedVisitors = visitors.toLocaleString("en-US");
@@ -24,22 +29,36 @@ const SpotCard = ({ spot, handleShowDetailsBtn, handleAddCartButton }) => {
       </figure>
 
       <div className="card-body">
-        <div className="text-left flex-grow">
+        <div className="text-left flex gap-5 flex-col flex-grow">
           <h2 className="text-2xl text-primary  font-bold ">{spot.spot}</h2>
+          <h2 className="">
+            <span className="text-2xl font-semibold">Short Description: </span>
+            <p className="text-justify">
+              {spot.description.split(" ").slice(0, 25).join(" ")} . . .{" "}
+              <span className="inline-block">
+                <button
+                  onClick={() => handleShowDetailsBtn(spot._id)}
+                  className="bg-primary px-3 rounded-lg text-gray-100"
+                >
+                  Show Details
+                </button>
+              </span>
+            </p>
+          </h2>
         </div>
         <div className="divider p-0 m-0"></div>
 
         <div className="grid grid-cols-3 flex-grow  py-3 text-message-color">
-          <div className="flex flex-col items-center gap-2 text-center">
-            <FaLocationDot className="text-lg" />
+          <div className="flex flex-col items-center gap-2 text-center  justify-center">
+            <FaLocationDot className="text-2xl" />
             <h3>{spot.location}</h3>
           </div>
-          <div className="flex flex-col items-center gap-2 text-center">
-            <RxAvatar className="text-lg" />
-            <h3>{formateTotalVisitors(parseInt(spot.visitors_per_year))}</h3>
+          <div className="flex flex-col items-center gap-2 text-center  justify-center">
+            <TiWeatherPartlySunny className="text-3xl" />
+            <h3>{spot.seasonality}</h3>
           </div>
-          <div className="flex flex-col items-center gap-2 text-center">
-            <TfiMoney className="text-lg" />
+          <div className="flex flex-col items-center gap-2 text-center  justify-center">
+            <TfiMoney className="text-2xl" />
             <h3>{spot.cost}</h3>
           </div>
         </div>
@@ -64,4 +83,4 @@ const SpotCard = ({ spot, handleShowDetailsBtn, handleAddCartButton }) => {
   );
 };
 
-export default SpotCard;
+export default SpotCardForCountry;

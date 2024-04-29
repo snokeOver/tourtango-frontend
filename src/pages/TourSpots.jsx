@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 import SectionTitle from "../components/sharedComponents/SectionTitle";
 
 import SpotCard from "../components/all-tourist-spots/SpotCard";
@@ -64,12 +64,29 @@ const TourSpots = () => {
     setSpotsArr(newArr);
   };
 
+  // for smooth scroll to the target section
+  const smoothTransition = () => {
+    document
+      .querySelector("#targetSection")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (!pageLoading) smoothTransition();
+  }, [pageLoading]);
+
   return (
     <>
+      <Helmet>
+        <title>Tour Spots | TourTango</title>
+      </Helmet>
       {pageLoading ? (
         <PageSkeleton />
       ) : (
-        <div className="container bg-base-100  mx-auto px-2 w-full overflow-hidden">
+        <div
+          id="targetSection"
+          className="md:container bg-base-100  mx-2 md:mx-auto px-2 w-full overflow-hidden"
+        >
           <SectionTitle
             title="Popular Tourist Spot in Asia"
             subTitle="Asia is a continent brimming with diverse and breathtaking tourist destinations, vibrant cultures."

@@ -170,12 +170,12 @@ const MyList = () => {
   return (
     <>
       <Helmet>
-        <title>Cart | TourTango</title>
+        <title>My List | TourTango</title>
       </Helmet>
       {pageLoading ? (
         <PageSkeleton />
       ) : (
-        <div className=" container bg-base-100 mx-auto">
+        <div className=" md:container bg-base-100 mx-2 md:mx-auto">
           {/* testing */}
           <div className="hero py-10 rounded-lg bg-base-200">
             <div className="hero-content text-center flex-col">
@@ -191,7 +191,7 @@ const MyList = () => {
                     : "You didn't add any Spot yet!"}
                 </h1>
               </div>
-              <div className="max-w-[21rem] md:max-w-2xl lg:max-w-3xl">
+              <div className="max-w-[20.9rem] xs:max-w-[23rem] md:max-w-2xl lg:max-w-3xl">
                 {loadedSpots.length > 0 && (
                   <div
                     data-aos="fade-right"
@@ -243,7 +243,7 @@ const MyList = () => {
                           <tr>
                             <th className="text-center text-lg" colSpan="6">
                               <span className="mr-3">To add more spot</span>
-                              <span>
+                              <span className="inline-block">
                                 <Link to="/add-spot">
                                   <PrimaryButton btnTitle="Click Here" />
                                 </Link>
