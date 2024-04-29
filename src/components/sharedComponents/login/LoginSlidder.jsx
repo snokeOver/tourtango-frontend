@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import axios from "axios";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,11 +11,24 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 const LoginSlidder = () => {
   const [images, setImages] = useState([]);
+  const baseURL = import.meta.env.VITE_BASE_URL;
+
   useEffect(() => {
-    fetch("/loginSliderImages.json")
-      .then((result) => result.json())
-      .then((images) => setImages(images));
+    const fetchImagesUrl = async () => {
+      try {
+        const response = await axios.get(`${baseURL}/api/spots/login`);
+        if (response.data) {
+          setImages(response.data);
+        } else {
+          console.log(response.data);
+        }
+      } catch (err) {
+        console.log(err.response);
+      }
+    };
+    fetchImagesUrl();
   }, []);
+
   return (
     <>
       <Swiper

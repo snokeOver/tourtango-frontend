@@ -14,11 +14,11 @@ const SpotCard = ({ spot, handleShowDetailsBtn, handleAddCartButton }) => {
     <div className="card card-compact w-auto bg-base-100 rounded-xl    border">
       <figure className="relative mb-3 ">
         <img
-          className="w-full rounded-t-xl h-[17rem] group-hover:scale-[0.95] hover:!scale-100 duration-500"
+          className="w-full rounded-t-xl h-[17rem]  hover:!scale-110 duration-500"
           src={spot.imageUrl}
           alt={spot.imageUrl}
         />
-        <h5 className="absolute  top-5 left-5 px-3 text-gray-100 font-semibold  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-500">
+        <h5 className="absolute  top-5 right-5 px-3 text-gray-100 font-semibold  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-500 hover:text-gray-800">
           {spot.country}
         </h5>
       </figure>
