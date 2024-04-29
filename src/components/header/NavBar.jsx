@@ -11,6 +11,8 @@ import {
   getCartIdsFromLST,
 } from "../../services/storeCartItems";
 
+import { Tooltip } from "react-tooltip";
+
 const NavBar = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const {
@@ -224,8 +226,15 @@ const NavBar = () => {
             <img
               src="https://i.ibb.co/J2YD92S/logo.png"
               alt=""
-              className="w-12"
+              className="w-12 my_tooltip"
             />
+            <Tooltip
+              anchorSelect=".my_tooltip"
+              place="bottom"
+              className="z-50 font-poppins text-sm"
+            >
+              Home
+            </Tooltip>
             <div className="hidden md:flex ">
               <SiteLogo />
             </div>

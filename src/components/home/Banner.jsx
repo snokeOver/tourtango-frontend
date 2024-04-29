@@ -10,15 +10,23 @@ import { IoIosSearch } from "react-icons/io";
 // import required modules
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
+import { useTypewriter } from "react-simple-typewriter";
+
 const Banner = () => {
   const [images, setImages] = useState([]);
   const baseURL = import.meta.env.VITE_BASE_URL;
+
+  const [text] = useTypewriter({
+    words: ["Tour Spot", "Destination", "Getaway", "Adventure", "Experience"],
+    loop: 0,
+  });
 
   // Manage the search functionality
   const handleSearchButton = (e) => {
     e.preventDefault();
   };
 
+  // Get the banner images urls from DB
   useEffect(() => {
     const fetchImagesUrl = async () => {
       try {
@@ -85,9 +93,10 @@ const Banner = () => {
             data-aos-delay="500"
             data-aos-duration="1000"
             data-aos-easing="ease-in-sine"
-            className="text-xl md:text-4xl lg:text-6xl  text-gray-100"
+            className=" text-xl md:text-4xl lg:text-6xl  text-gray-100"
           >
-            Find Your Dream Tour Spot
+            <span className="mr-2">Find Your Dream </span>
+            <span className="text-primary">{text}</span>
           </h1>
         </div>
         <div

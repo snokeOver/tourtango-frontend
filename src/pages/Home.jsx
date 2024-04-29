@@ -3,6 +3,7 @@ import Banner from "../components/home/Banner";
 import MarqueeSection from "../components/home/MarqueeSection";
 import TouristSpotsSection from "../components/home/TouristSpotsSection";
 import CountrySection from "../components/home/CountrySection";
+import HowWeHelpSection from "../components/home/HowWeHelpSection";
 
 const Home = () => {
   return (
@@ -15,10 +16,11 @@ const Home = () => {
         <TouristSpotsSection />
       </div>
       <MarqueeSection />
-      {/* <ChooseUs /> */}
-      <div className="container mx-auto">
+
+      <div className="md:container mx-auto">
         <CountrySection />
       </div>
+      <HowWeHelpSection />
     </div>
   );
 };
