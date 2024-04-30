@@ -9,10 +9,15 @@ import {
 import SingleCartItem from "../components/cart/SingleCartItem";
 
 const Cart = () => {
-  const { user, setCartNumber, spotsArr, storeUserPreference, currTheme } =
-    useContext(AuthContext);
+  const {
+    user,
+    cartNumber,
+    setCartNumber,
+    spotsArr,
+    storeUserPreference,
+    currTheme,
+  } = useContext(AuthContext);
   const [selectedSpot, setselectedSpot] = useState([]);
-  const [deleteCall, setDeleteCall] = useState(true);
   const [totalCost, setTotalCost] = useState("");
 
   // Calculate Total Cost
@@ -43,7 +48,8 @@ const Cart = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         deleteCartIdsFromLST(user?.uid, id);
-        setDeleteCall(true);
+        const currSpotIds = getCartIdsFromLST(user?.uid);
+        setCartNumber(currSpotIds.length);
         storeUserPreference();
         Swal.fire({
           background: currTheme === "dark" ? "#1f2937 " : "",
@@ -55,18 +61,12 @@ const Cart = () => {
     });
   };
 
-  //   get the stored Cart ids
+  //   Update selected spots
   useEffect(() => {
-    if (deleteCall) {
-      const currPropIds = getCartIdsFromLST(user?.uid);
-      setCartNumber(currPropIds.length);
-      const newSpots = spotsArr.filter((spot) =>
-        currPropIds.includes(spot._id)
-      );
-      setselectedSpot(newSpots);
-      setDeleteCall(false);
-    }
-  }, [deleteCall]);
+    const currSpotIds = getCartIdsFromLST(user?.uid);
+    const newSpots = spotsArr.filter((spot) => currSpotIds.includes(spot._id));
+    setselectedSpot(newSpots);
+  }, [cartNumber]);
 
   useEffect(() => {
     calculateTotalCost();
@@ -91,7 +91,7 @@ const Cart = () => {
               >
                 {selectedSpot.length > 0
                   ? "Your Cart Details"
-                  : "You didn't select any Tour Spot yet!"}
+                  : "You didn't select any Tourist Spot yet!"}
               </h1>
             </div>
             <div className="max-w-[20.9rem] xs:max-w-[23rem] md:max-w-2xl lg:max-w-3xl">
@@ -115,7 +115,7 @@ const Cart = () => {
                       <thead>
                         <tr>
                           <th></th>
-                          <th>Tour Spot</th>
+                          <th>Tourist Spot</th>
                           <th>Travel Time</th>
                           <th>Cost</th>
                         </tr>

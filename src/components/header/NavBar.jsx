@@ -158,7 +158,7 @@ const NavBar = () => {
             } mr-1`
           }
         >
-          Tour Spots
+          Tourist Spots
         </NavLink>
       </li>
 

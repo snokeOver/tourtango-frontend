@@ -20,7 +20,13 @@ const Banner = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
   const [text] = useTypewriter({
-    words: ["Tour Spot", "Destination", "Getaway", "Adventure", "Experience"],
+    words: [
+      "Tourist Spot",
+      "Destination",
+      "Getaway",
+      "Adventure",
+      "Experience",
+    ],
     loop: 0,
   });
 

@@ -61,12 +61,12 @@ const SpotDetails = () => {
     }
     const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
-      return setToastMsg("Tour Spot Already Added To Cart  !");
+      return setToastMsg("Tourist Spot Already Added To Cart  !");
     } else {
       storeCartIdsToLST(user?.uid, id);
       setCartNumber(result.length + 1);
       storeUserPreference();
-      return setToastMsg("Tour Spot added succesfully  !");
+      return setToastMsg("Tourist Spot added succesfully  !");
     }
   };
 

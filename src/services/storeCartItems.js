@@ -19,7 +19,7 @@ const deleteAllCartIdsFromLST = (cartStorageName) => {
   localStorage.removeItem(cartStorageName);
 };
 
-// Store the Tour Spot Ids if it is not in the storage
+// Store the Tourist Spot Ids if it is not in the storage
 const storeCartIdsToLST = (cartStorageName, id) => {
   const result = getCartIdsFromLST(cartStorageName);
   if (!result.includes(id)) {

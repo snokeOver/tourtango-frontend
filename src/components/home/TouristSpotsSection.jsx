@@ -16,7 +16,7 @@ const TouristSpotsSection = () => {
 
   const [featuredSpots, setFeaturedSpots] = useState([]);
 
-  // handle the show Tour Spot button
+  // handle the show Tourist Spot button
   const handleShowDetailsBtn = (id) => {
     navigate(`/spot-details/${id}`);
   };
@@ -29,12 +29,12 @@ const TouristSpotsSection = () => {
     }
     const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
-      return setToastMsg("Tour Spot already added to cart  !");
+      return setToastMsg("Tourist Spot already added to cart  !");
     } else {
       storeCartIdsToLST(user?.uid, id);
       setCartNumber(result.length + 1);
       storeUserPreference();
-      return setToastMsg("Tour Spot added succesfully  !");
+      return setToastMsg("Tourist Spot added succesfully  !");
     }
   };
 

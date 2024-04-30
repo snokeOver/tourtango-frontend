@@ -26,7 +26,7 @@ const CountrySection = () => {
     fetchImagesUrl();
   }, []);
 
-  //  handle the Country Card Button to redirect to the tour spots cards regarding to the country.
+  //  handle the Country Card Button to redirect to the Tourist spots cards regarding to the country.
   const handleCountryCardBtn = (countryName) => {
     console.log(countryName);
     navigate(`/spots-by-country/${countryName}`);

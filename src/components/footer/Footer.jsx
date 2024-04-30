@@ -87,7 +87,7 @@ const Footer = () => {
                 placeholder="Email . . . "
                 className="input  input-bordered  input-md w-full max-w-xs "
               />
-              <FaLocationArrow className=" cursor-pointer text-lg absolute text-primary right-5 bottom-4 sm:right-20 md:right-48 lg:right-5 xl:right-16 2xl:right-40" />
+              <FaLocationArrow className=" cursor-pointer text-lg absolute text-primary right-5 bottom-4 sm:right-20 md:right-5 " />
             </div>
           </nav>
         </div>

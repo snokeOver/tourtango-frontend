@@ -41,7 +41,6 @@ const LoginSlidder = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         modules={[Autoplay, Pagination]}
         className="mySwiper rounded-bl-md rounded-r-[3.5rem] rounded-tl-[3.5rem] rounded-tr-md w-[20rem] md:w-[25rem] lg:w-[35rem] h-40 md:h-56 xl:h-72"
       >
