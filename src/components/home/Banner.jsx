@@ -115,23 +115,12 @@ const Banner = () => {
       </div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col gap-8 lg:gap-16 w-[90%]">
         <div className="text-center">
-          <h1
-            data-aos="fade-left"
-            data-aos-delay="500"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-sine"
-            className=" text-xl md:text-4xl lg:text-6xl  text-gray-100"
-          >
+          <h1 className=" text-xl md:text-4xl lg:text-6xl  text-gray-100">
             <span className="mr-2">Find Your Dream </span>
             <span className="font-bold">{text}</span>
           </h1>
         </div>
-        <div
-          data-aos="fade-up"
-          data-aos-duration="2000"
-          data-aos-delay="1000"
-          className="w-[70%] lg:w-3/4 xl:w-1/2 mx-auto "
-        >
+        <div className="w-[70%] lg:w-3/4 xl:w-1/2 mx-auto ">
           <form onSubmit={handleSearchButton}>
             <fieldset className="form-control w-full">
               <div className="join relative text-gray-200 text-xl font-semibold">

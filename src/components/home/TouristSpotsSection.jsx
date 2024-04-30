@@ -8,6 +8,7 @@ import {
   storeCartIdsToLST,
 } from "../../services/storeCartItems";
 import PrimaryButton from "../sharedComponents/PrimaryButton";
+import { goToTop } from "../../services/goToTop";
 
 const TouristSpotsSection = () => {
   const { spotsArr, user, setCartNumber, setToastMsg, storeUserPreference } =
@@ -25,7 +26,7 @@ const TouristSpotsSection = () => {
   const handleAddCartButton = (id) => {
     if (!user) {
       navigate("/login");
-      return window.scrollTo(0, 0);
+      return goToTop();
     }
     const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {

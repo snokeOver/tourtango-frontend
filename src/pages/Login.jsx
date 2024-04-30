@@ -10,6 +10,8 @@ import { Helmet } from "react-helmet-async";
 import LoginSlidder from "../components/sharedComponents/login/LoginSlidder.jsx";
 import SideSectionWithSlidder from "../components/sharedComponents/login/SideSectionWithSlidder.jsx";
 import LogoWithTitle from "../components/sharedComponents/login/LogoWithTitle.jsx";
+import { goToTop } from "../services/goToTop.js";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn.jsx";
 
 const Login = () => {
   const {
@@ -125,7 +127,7 @@ const Login = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Login | TourTango</title>
       </Helmet>
@@ -243,6 +245,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

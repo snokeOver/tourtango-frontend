@@ -1,9 +1,11 @@
 import { Helmet } from "react-helmet-async";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const About = () => {
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title> About | TourTango</title>
       </Helmet>
@@ -14,12 +16,7 @@ const About = () => {
           </h3>
         </div>
         <div className="card card-side bg-base-200  shadow-xl flex flex-col xl:flex-row gap-6 lg:gap-0 mb-10">
-          <figure
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-easing="ease-in-sine"
-            className="flex-1 p-3"
-          >
+          <figure className="flex-1 p-3">
             <img
               className="rounded-2xl"
               src="https://i.ibb.co/k85YGFF/office.jpg"
@@ -27,39 +24,21 @@ const About = () => {
             />
           </figure>
           <div className="card-body flex-1 flex flex-col items-center justify-center gap-6">
-            <h2
-              data-aos="fade-left"
-              data-aos-duration="800"
-              data-aos-delay="1600"
-              data-aos-easing="ease-in-sine"
-              className="card-title"
-            >
+            <h2 className="card-title">
               Embark on unforgettable journeys with our premier tourist website.
               Discover not just destinations, but the stories, cultures, and
               adventures that await beyond every horizon. Because when you
               travel with us, every step is a new chapter in your own
               extraordinary tale.
             </h2>
-            <p
-              data-aos="fade-left"
-              data-aos-duration="800"
-              data-aos-delay="1300"
-              data-aos-easing="ease-in-sine"
-              className="font-light text-gray-400"
-            >
+            <p className="font-light text-gray-400">
               Explore beyond the usual tourist hotspots with our curated
               insights straight from locals. With over 34 unique experiences
               mapped out, you'll dive deeper into the heart of each destination,
               discovering hidden gems and local treasures that define the true
               essence of travel
             </p>
-            <p
-              data-aos="fade-left"
-              data-aos-duration="800"
-              data-aos-delay="1000"
-              data-aos-easing="ease-in-sine"
-              className="font-light text-gray-400"
-            >
+            <p className="font-light text-gray-400">
               We’re committed to helping them discover a place where they will
               love to live and where they will feel more connected to the
               community and to each other. It’s why we strive every day to help
@@ -68,6 +47,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

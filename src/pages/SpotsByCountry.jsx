@@ -12,6 +12,8 @@ import {
   storeCartIdsToLST,
 } from "../services/storeCartItems";
 import SpotCardForCountry from "../components/tourist-spots-by-countries/SpotCardForCountry";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const SpotsByCountry = () => {
   const { country } = useParams();
@@ -48,7 +50,7 @@ const SpotsByCountry = () => {
   const handleAddCartButton = (id) => {
     if (!user) {
       navigate("/login");
-      return window.scrollTo(0, 0);
+      return goToTop();
     }
     const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
@@ -63,7 +65,7 @@ const SpotsByCountry = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       {pageLoading ? (
         <PageSkeleton />
       ) : (
@@ -87,6 +89,7 @@ const SpotsByCountry = () => {
           </div>
         </div>
       )}
+      <GoToTopBtn />
     </>
   );
 };

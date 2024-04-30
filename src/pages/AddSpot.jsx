@@ -4,6 +4,8 @@ import PrimaryButton from "../components/sharedComponents/PrimaryButton";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const AddSpot = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -107,7 +109,7 @@ const AddSpot = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Add Spot | TourTango</title>
       </Helmet>
@@ -322,6 +324,7 @@ const AddSpot = () => {
           </div>
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

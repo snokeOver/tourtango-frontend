@@ -1,9 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 const NotFound = () => {
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Not Found | TourTango</title>
       </Helmet>
@@ -11,33 +13,16 @@ const NotFound = () => {
         <div className="hero py-10 rounded-lg bg-base-200">
           <div className="hero-content text-center">
             <div className="max-w-md">
-              <h1
-                data-aos="fade-down"
-                data-aos-duration="800"
-                data-aos-easing="ease-in-sine"
-                className="text-5xl font-bold "
-              >
+              <h1 className="text-5xl font-bold ">
                 <img src="https://i.ibb.co/cY9kysS/404.png" alt="" />
                 <p className="playfair-font -mt-10">Not Found</p>
               </h1>
-              <p
-                data-aos="fade-up"
-                data-aos-duration="800"
-                data-aos-delay="200"
-                data-aos-easing="ease-in-sine"
-                className="py-6"
-              >
+              <p className="py-6">
                 The page your are looking for was not found!
               </p>
 
               <NavLink to="/">
-                <button
-                  data-aos="zoom-in"
-                  data-aos-duration="800"
-                  data-aos-delay="1000"
-                  data-aos-easing="ease-in-sine"
-                  className="btn hover:from-pink-500 hover:to-indigo-400 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-gray-200"
-                >
+                <button className="btn hover:from-pink-500 hover:to-indigo-400 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-gray-200">
                   Go Home
                 </button>
               </NavLink>
@@ -45,6 +30,7 @@ const NotFound = () => {
           </div>
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

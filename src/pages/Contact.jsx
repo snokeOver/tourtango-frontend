@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../providers/AuthProvider";
 import PrimaryButton from "../components/sharedComponents/PrimaryButton";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const Contact = () => {
   const { setToastMsg } = useContext(AuthContext);
@@ -31,7 +33,7 @@ const Contact = () => {
   };
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Contact | Tourango</title>
       </Helmet>
@@ -41,12 +43,7 @@ const Contact = () => {
           className="hero py-2 md:py-10 my-5 md:my-10 bg-base-200 rounded-lg md:w-[90%] mx-auto"
         >
           <div className="hero-content flex-col lg:gap-24 lg:flex-row-reverse">
-            <div
-              data-aos="fade-left"
-              data-aos-duration="800"
-              data-aos-easing="ease-in-sine"
-              className="text-center lg:text-left text-gray-600"
-            >
+            <div className="text-center lg:text-left text-gray-600">
               <h1 className="text-3xl md:text-5xl font-bold dark:hover:text-pink-500 hover:text-blue-500">
                 Contact now!
               </h1>
@@ -54,21 +51,8 @@ const Contact = () => {
                 Tell us what is your querry and we'll contact you soon.
               </p>
             </div>
-            <div
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="500"
-              data-aos-easing="ease-in-sine"
-              className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
-            >
-              <form
-                data-aos="fade-left"
-                data-aos-duration="1200"
-                data-aos-delay="1200"
-                data-aos-easing="ease-in-sine"
-                className="card-body"
-                onSubmit={handleSubmit}
-              >
+            <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+              <form className="card-body" onSubmit={handleSubmit}>
                 {/* Name part */}
                 <div className="form-control">
                   <label className="label">
@@ -147,6 +131,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

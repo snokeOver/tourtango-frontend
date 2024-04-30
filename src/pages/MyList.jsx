@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import PageSkeleton from "../components/sharedComponents/PageSkeleton";
 import PrimaryButton from "../components/sharedComponents/PrimaryButton";
 import { Link } from "react-router-dom";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const MyList = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -173,7 +175,7 @@ const MyList = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>My List | TourTango</title>
       </Helmet>
@@ -185,12 +187,7 @@ const MyList = () => {
           <div className="hero py-10 rounded-lg bg-base-200">
             <div className="hero-content text-center flex-col">
               <div className="text-center">
-                <h1
-                  data-aos="fade-down"
-                  data-aos-duration="800"
-                  data-aos-easing="ease-in-sine"
-                  className="text-4xl font-bold"
-                >
+                <h1 className="text-4xl font-bold">
                   {loadedSpots.length > 0
                     ? "All The Spots You Added"
                     : "You didn't add any Spot yet!"}
@@ -198,20 +195,9 @@ const MyList = () => {
               </div>
               <div className="max-w-[20.9rem] xs:max-w-[23rem] md:max-w-2xl lg:max-w-3xl">
                 {loadedSpots.length > 0 && (
-                  <div
-                    data-aos="fade-right"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-sine"
-                    className="card w-full  shadow-2xl bg-base-100"
-                  >
+                  <div className="card w-full  shadow-2xl bg-base-100">
                     {/* Table for cart */}
-                    <div
-                      data-aos="fade-left"
-                      data-aos-duration="1000"
-                      data-aos-delay="900"
-                      data-aos-easing="ease-in-sine"
-                      className="overflow-x-auto py-7 "
-                    >
+                    <div className="overflow-x-auto py-7 ">
                       <table className="table">
                         {/* head */}
                         <thead>
@@ -479,6 +465,7 @@ const MyList = () => {
           </dialog>
         </div>
       )}
+      <GoToTopBtn />
     </>
   );
 };

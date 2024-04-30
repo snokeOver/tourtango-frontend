@@ -10,6 +10,8 @@ import GithubButton from "../components/sharedComponents/GithubButton.jsx";
 import { Helmet } from "react-helmet-async";
 import SideSectionWithSlidder from "../components/sharedComponents/login/SideSectionWithSlidder.jsx";
 import LogoWithTitle from "../components/sharedComponents/login/LogoWithTitle.jsx";
+import { goToTop } from "../services/goToTop.js";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn.jsx";
 
 const Register = () => {
   const {
@@ -245,7 +247,7 @@ const Register = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Homestead | Register</title>
       </Helmet>
@@ -480,6 +482,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

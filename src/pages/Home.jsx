@@ -4,11 +4,13 @@ import MarqueeSection from "../components/home/MarqueeSection";
 import TouristSpotsSection from "../components/home/TouristSpotsSection";
 import CountrySection from "../components/home/CountrySection";
 import HowWeHelpSection from "../components/home/HowWeHelpSection";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const Home = () => {
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <div className="w-full overflow-hidden">
         <Helmet>
           <title>Home | TourTango</title>
@@ -24,6 +26,7 @@ const Home = () => {
         </div>
         <HowWeHelpSection />
       </div>
+      <GoToTopBtn />
     </>
   );
 };

@@ -14,6 +14,8 @@ import {
   getCartIdsFromLST,
   storeCartIdsToLST,
 } from "../services/storeCartItems";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const SpotDetails = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -57,7 +59,7 @@ const SpotDetails = () => {
   const handleAddCartButton = (id) => {
     if (!user) {
       navigate("/login");
-      window.scrollTo(0, 0);
+      return goToTop();
     }
     const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
@@ -72,7 +74,7 @@ const SpotDetails = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Spot Details | TourTango</title>
       </Helmet>
@@ -84,12 +86,7 @@ const SpotDetails = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:p-8">
-              <figure
-                data-aos="zoom-in"
-                data-aos-duration="1000"
-                data-aos-easing="ease-in-sine"
-                className="w-full mx-auto rounded-xl "
-              >
+              <figure className="w-full mx-auto rounded-xl ">
                 <img
                   className="h-full py-4 "
                   src={spotToShow.imageUrl}
@@ -98,36 +95,18 @@ const SpotDetails = () => {
               </figure>
               <div className="card-body text-left w-full">
                 <div className="flex justify-between">
-                  <h2
-                    data-aos="fade-down"
-                    data-aos-duration="800"
-                    data-aos-delay="100"
-                    data-aos-easing="ease-in-sine"
-                    className="card-title text-2xl md:text-4xl font-bold text-heading-color playfair-font"
-                  >
+                  <h2 className="card-title text-2xl md:text-4xl font-bold text-heading-color playfair-font">
                     {spotToShow.spot}
                   </h2>
                   <div>
-                    <h5
-                      data-aos="fade-left"
-                      data-aos-duration="800"
-                      data-aos-delay="200"
-                      data-aos-easing="ease-in-sine"
-                      className=" px-4 py-1 bg-primary text-gray-100 font-semibold rounded-xl inline-block"
-                    >
+                    <h5 className=" px-4 py-1 bg-primary text-gray-100 font-semibold rounded-xl inline-block">
                       {spotToShow.country}
                     </h5>
                   </div>
                 </div>
 
                 <div className=" font-mediumpy-5 mt-3 text-message-color">
-                  <h4
-                    data-aos="fade-right"
-                    data-aos-duration="800"
-                    data-aos-delay="150"
-                    data-aos-easing="ease-in-sine"
-                    className="text-lg text-left"
-                  >
+                  <h4 className="text-lg text-left">
                     <span className="font-extrabold text-lg mr-2">
                       Average Cost:
                     </span>{" "}
@@ -135,26 +114,14 @@ const SpotDetails = () => {
                   </h4>
                 </div>
 
-                <div
-                  data-aos="zoom-in"
-                  data-aos-duration="800"
-                  data-aos-delay="250"
-                  data-aos-easing="ease-in-sine"
-                  className="my-2"
-                >
+                <div className="my-2">
                   <span className="font-extrabold text-lg mr-2">
                     Description:
                   </span>
                   <br />
                   <p className="text-justify">{spotToShow.description}</p>
                 </div>
-                <div
-                  data-aos="zoom-in"
-                  data-aos-duration="800"
-                  data-aos-delay="250"
-                  data-aos-easing="ease-in-sine"
-                  className="my-2"
-                >
+                <div className="my-2">
                   <div>
                     <span className="font-extrabold text-lg mr-2">
                       Seasonality:
@@ -170,39 +137,21 @@ const SpotDetails = () => {
               </div> */}
                 <div className="divider mb-0"></div>
                 <div className="flex flex-col gap-3 font-medium  pt-5 text-message-color">
-                  <div
-                    data-aos="fade-left"
-                    data-aos-duration="800"
-                    data-aos-delay="350"
-                    data-aos-easing="ease-in-sine"
-                    className="grid grid-cols-2 md:grid-cols-3 gap-3"
-                  >
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     <div className="flex items-center gap-3">
                       <FaLocationDot className="text-lg" />
                       <h3 className="text-message-color">Location:</h3>
                     </div>
                     <span className="font-bold">{spotToShow.location}</span>
                   </div>
-                  <div
-                    data-aos="fade-right"
-                    data-aos-duration="800"
-                    data-aos-delay="400"
-                    data-aos-easing="ease-in-sine"
-                    className="grid grid-cols-2 md:grid-cols-3 gap-3"
-                  >
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     <div className="flex items-center gap-3">
                       <IoAirplaneOutline className="text-lg" />
                       <h3 className="text-message-color">Travel Time:</h3>
                     </div>
                     <span className="font-bold">{spotToShow.travel_time}</span>
                   </div>
-                  <div
-                    data-aos="fade-left"
-                    data-aos-duration="800"
-                    data-aos-delay="450"
-                    data-aos-easing="ease-in-sine"
-                    className="grid grid-cols-2 md:grid-cols-3 gap-3"
-                  >
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     <div className="flex items-center gap-3">
                       <RxAvatar className="text-lg" />
                       <h3 className="text-message-color">Visitors Per Year:</h3>
@@ -215,13 +164,7 @@ const SpotDetails = () => {
                   </div>
                 </div>
 
-                <div
-                  data-aos="fade-up"
-                  data-aos-duration="800"
-                  data-aos-delay="600"
-                  data-aos-easing="ease-in-sine"
-                  className="flex gap-10 w-[90%] mx-auto mt-8"
-                >
+                <div className="flex gap-10 w-[90%] mx-auto mt-8">
                   <button
                     onClick={() => handleAddCartButton(spotToShow._id)}
                     className="btn  hover:from-pink-500 hover:to-indigo-400 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-3  border-none text-gray-200 flex-1   py-3 mb-3  rounded-md"
@@ -235,6 +178,7 @@ const SpotDetails = () => {
           )}
         </div>
       </div>
+      <GoToTopBtn />
     </>
   );
 };

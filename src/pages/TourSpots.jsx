@@ -11,6 +11,8 @@ import {
   getCartIdsFromLST,
   storeCartIdsToLST,
 } from "../services/storeCartItems";
+import { goToTop } from "../services/goToTop";
+import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const TourSpots = () => {
   const {
@@ -34,7 +36,7 @@ const TourSpots = () => {
   const handleAddCartButton = (id) => {
     if (!user) {
       navigate("/login");
-      return window.scrollTo(0, 0);
+      return goToTop();
     }
     const result = getCartIdsFromLST(user?.uid);
     if (result.includes(id)) {
@@ -66,7 +68,7 @@ const TourSpots = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {goToTop()}
       <Helmet>
         <title>Tourist Spots | TourTango</title>
       </Helmet>
@@ -124,6 +126,7 @@ const TourSpots = () => {
           </div>
         </div>
       )}
+      <GoToTopBtn />
     </>
   );
 };
