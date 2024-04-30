@@ -6,14 +6,15 @@ import OfficeLocations from "../components/officeLocations/OfficeLocations";
 const Branches = () => {
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title> Branches | TourTango</title>
       </Helmet>
-      <div className=" md:container bg-base-100 mx-2 md:mx-auto px-2 md:px-5  w-full overflow-hidden pb-10">
+      <div className=" md:container bg-base-100 mx-2 md:mx-auto px-2 md:px-5  overflow-hidden pb-10">
         <div className="my-10">
           <h3 className="text-3xl font-semibold mb-5 my-10">Office Location</h3>
         </div>
-        <div className="card  bg-base-200 shadow-xl grid grid-cols-1 xl:grid-cols-5">
+        <div className="card  bg-base-200 shadow-xl grid grid-cols-1 xl:grid-cols-5 ">
           <div
             data-aos="fade-right"
             data-aos-duration="800"

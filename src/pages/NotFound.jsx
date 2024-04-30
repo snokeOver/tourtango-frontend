@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 const NotFound = () => {
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>Not Found | TourTango</title>
       </Helmet>

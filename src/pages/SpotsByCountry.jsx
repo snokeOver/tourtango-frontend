@@ -63,6 +63,7 @@ const SpotsByCountry = () => {
 
   return (
     <>
+      {window.scrollTo(0, 0)}
       {pageLoading ? (
         <PageSkeleton />
       ) : (

@@ -1,10 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import SocialLinks from "../sharedComponents/SocialLinks";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../providers/AuthProvider";
 import SiteLogo from "../sharedComponents/SiteLogo";
+import { FaPhoneAlt, FaLocationArrow } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
   const { toastMsg, setToastMsg, currTheme } = useContext(AuthContext);
@@ -74,19 +77,53 @@ const Footer = () => {
         </div>
         <div className="footer flex md:justify-center">
           <nav>
-            <h6 className="footer-title">Contact Info</h6>
-            <a className=" ">123 Main Street, New York, USA</a>
-            <a className=" cursor-pointer text-primary">+(880) 15171-66682</a>
-            <a className=" cursor-pointer ">snokeover@gmail.com</a>
+            <h6 className="footer-title">Newsletter</h6>
+            <a className=" ">Save up to 50% on tours!</a>
+            <div className="relative">
+              <input
+                name="email"
+                readOnly
+                type="text"
+                placeholder="Email . . . "
+                className="input  input-bordered  input-md w-full max-w-xs "
+              />
+              <FaLocationArrow className=" cursor-pointer text-lg absolute text-primary right-5 bottom-4 sm:right-20 md:right-48 lg:right-5 xl:right-16 2xl:right-40" />
+            </div>
           </nav>
         </div>
       </div>
       <div className="divider py-10"></div>
+      {/* Last part */}
       <div className="footer footer-center ">
         <div className="flex flex-col-reverse md:flex-row gap-10 justify-between  w-full">
+          {/* Copy Write part */}
           <aside className="text-xs">
             <p>© TourTango - {new Date().getFullYear()} - All right reserved</p>
           </aside>
+          {/* Address part */}
+          <aside>
+            <div className="footer flex md:justify-center">
+              <nav>
+                <a className=" cursor-pointer  flex items-center gap-2">
+                  <FaLocationDot className="text-primary" />
+                  <span className="hover:text-primary text-left">
+                    123 Main Street, <br /> New York City, New York, USA
+                  </span>
+                </a>
+                <a className=" cursor-pointer  flex items-center gap-2">
+                  <FaPhoneAlt className="text-primary" />
+                  <span className="hover:text-primary">+(880) 15171-66682</span>
+                </a>
+                <a className=" cursor-pointer  flex items-center gap-2">
+                  <MdEmail className="text-primary" />
+                  <span className="hover:text-primary">
+                    snokeover@gmail.com
+                  </span>
+                </a>
+              </nav>
+            </div>
+          </aside>
+          {/* Logo and social icond part */}
           <aside>
             <div className="mb-3">
               <Link to="/" className="text-3xl font-semibold font-rubik">

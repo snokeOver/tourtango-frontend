@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const AddSpot = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
-  const { user, setBtnLoading } = useContext(AuthContext);
+  const { user, setBtnLoading, currTheme } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     uid: "",
     name: "",
@@ -56,6 +56,7 @@ const AddSpot = () => {
     };
 
     Swal.fire({
+      background: currTheme === "dark" ? "#1f2937 " : "",
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -74,6 +75,7 @@ const AddSpot = () => {
           if (response.data) {
             setBtnLoading(false);
             Swal.fire({
+              background: currTheme === "dark" ? "#1f2937 " : "",
               title: "Saved!",
               text: "Your tourist spot has been saved.",
               icon: "success",
@@ -105,6 +107,7 @@ const AddSpot = () => {
 
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>Add Spot | TourTango</title>
       </Helmet>

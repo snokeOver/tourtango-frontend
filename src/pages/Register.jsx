@@ -245,6 +245,7 @@ const Register = () => {
 
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>Homestead | Register</title>
       </Helmet>

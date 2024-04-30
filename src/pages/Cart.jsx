@@ -9,7 +9,7 @@ import {
 import SingleCartItem from "../components/cart/SingleCartItem";
 
 const Cart = () => {
-  const { user, setCartNumber, spotsArr, storeUserPreference } =
+  const { user, setCartNumber, spotsArr, storeUserPreference, currTheme } =
     useContext(AuthContext);
   const [selectedSpot, setselectedSpot] = useState([]);
   const [deleteCall, setDeleteCall] = useState(true);
@@ -32,6 +32,7 @@ const Cart = () => {
   //  handle the delete button and delete the ids from the local storage
   const handleDeleteSpot = (id) => {
     Swal.fire({
+      background: currTheme === "dark" ? "#1f2937 " : "",
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -45,6 +46,7 @@ const Cart = () => {
         setDeleteCall(true);
         storeUserPreference();
         Swal.fire({
+          background: currTheme === "dark" ? "#1f2937 " : "",
           title: "Deleted!",
           text: "Cart item deleted succesfully  !",
           icon: "success",
@@ -72,6 +74,7 @@ const Cart = () => {
 
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title> Cart | TourTango</title>
       </Helmet>

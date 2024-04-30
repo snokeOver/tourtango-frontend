@@ -31,10 +31,11 @@ const Contact = () => {
   };
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>Contact | Tourango</title>
       </Helmet>
-      <div className="md:container bg-base-100 mx-2 md:mx-auto  w-full overflow-hidden">
+      <div className="md:container bg-base-100 mx-2 md:mx-auto  overflow-hidden">
         <div
           id="contact_bg"
           className="hero py-2 md:py-10 my-5 md:my-10 bg-base-200 rounded-lg md:w-[90%] mx-auto"

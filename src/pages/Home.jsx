@@ -7,21 +7,24 @@ import HowWeHelpSection from "../components/home/HowWeHelpSection";
 
 const Home = () => {
   return (
-    <div className="w-full overflow-hidden">
-      <Helmet>
-        <title>Home | TourTango</title>
-      </Helmet>
-      <Banner />
-      <div className="md:container mx-auto">
-        <TouristSpotsSection />
-      </div>
-      <MarqueeSection />
+    <>
+      {window.scrollTo(0, 0)}
+      <div className="w-full overflow-hidden">
+        <Helmet>
+          <title>Home | TourTango</title>
+        </Helmet>
+        <Banner />
+        <div className="md:container mx-auto">
+          <TouristSpotsSection />
+        </div>
+        <MarqueeSection />
 
-      <div className="md:container mx-auto">
-        <CountrySection />
+        <div className="md:container mx-auto">
+          <CountrySection />
+        </div>
+        <HowWeHelpSection />
       </div>
-      <HowWeHelpSection />
-    </div>
+    </>
   );
 };
 

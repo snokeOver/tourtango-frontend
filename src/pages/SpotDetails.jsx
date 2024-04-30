@@ -53,13 +53,6 @@ const SpotDetails = () => {
     return formatedVisitors;
   };
 
-  // for smooth scroll to the target section
-  const smoothTransition = () => {
-    document
-      .querySelector("#targetSection")
-      .scrollIntoView({ behavior: "smooth" });
-  };
-
   // Handle the add to cart button
   const handleAddCartButton = (id) => {
     if (!user) {
@@ -77,11 +70,9 @@ const SpotDetails = () => {
     }
   };
 
-  useEffect(() => {
-    if (!pageLoading) smoothTransition();
-  }, [pageLoading]);
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>Spot Details | TourTango</title>
       </Helmet>
@@ -92,10 +83,7 @@ const SpotDetails = () => {
               <PageSkeleton />
             </div>
           ) : (
-            <div
-              id="targetSection"
-              className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:p-8"
-            >
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:p-8">
               <figure
                 data-aos="zoom-in"
                 data-aos-duration="1000"

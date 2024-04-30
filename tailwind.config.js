@@ -29,6 +29,7 @@ export default {
 
           "--swiper-navigation-color": "#2196F3",
           "--swiper-pagination-color": "#2196F3",
+          "--swiper-auto-count-color": "rgb(229 231 235)",
         },
       },
       {
@@ -42,6 +43,7 @@ export default {
 
           "--swiper-navigation-color": "green",
           "--swiper-pagination-color": "green",
+          "--swiper-auto-count-color": "rgb(229 231 235)",
         },
       },
     ],

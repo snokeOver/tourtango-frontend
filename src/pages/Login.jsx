@@ -125,6 +125,7 @@ const Login = () => {
 
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>Login | TourTango</title>
       </Helmet>

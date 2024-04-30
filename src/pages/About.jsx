@@ -1,16 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import SocialLinks from "../components/sharedComponents/SocialLinks";
-
-import CustomMap from "../components/sharedComponents/CustomMap";
-import OfficeLocations from "../components/officeLocations/OfficeLocations";
 
 const About = () => {
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title> About | TourTango</title>
       </Helmet>
-      <div className=" md:container bg-base-100 mx-2 md:mx-auto px-2 md:px-5  w-full overflow-hidden ">
+      <div className=" md:container bg-base-100 mx-2 md:mx-auto px-2 md:px-5  overflow-hidden ">
         <div className="my-10">
           <h3 className="text-3xl font-semibold pl-4 mb-5">
             TourTango History

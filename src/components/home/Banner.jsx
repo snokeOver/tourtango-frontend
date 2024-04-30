@@ -6,6 +6,8 @@ import axios from "axios";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import { IoIosSearch } from "react-icons/io";
 // import required modules
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
@@ -48,27 +50,25 @@ const Banner = () => {
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
     progressCircle.current.style.setProperty("--progress", 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
   };
 
   return (
     <div className="pb-10 relative z-0 max-h-fit">
       <Swiper
-        effect={"fade"}
         spaceBetween={30}
-        loop={true}
         centeredSlides={true}
         autoplay={{
-          delay: 4000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         modules={[Autoplay, Pagination, EffectFade]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="mySwiper "
+        className="mySwiper"
+        effect={"fade"}
       >
         {images.map((image) => (
           <SwiperSlide key={image._id}>
@@ -117,7 +117,7 @@ const Banner = () => {
             className=" text-xl md:text-4xl lg:text-6xl  text-gray-100"
           >
             <span className="mr-2">Find Your Dream </span>
-            <span className="text-primary">{text}</span>
+            <span className="font-bold">{text}</span>
           </h1>
         </div>
         <div
@@ -128,11 +128,11 @@ const Banner = () => {
         >
           <form onSubmit={handleSearchButton}>
             <fieldset className="form-control w-full">
-              <div className="join relative">
+              <div className="join relative text-gray-200 text-xl font-semibold">
                 <input
                   type="text"
                   placeholder="Search . . . "
-                  className="input input-bordered join-item text-xs w-full"
+                  className="input input-bordered join-item  w-full  bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20  placeholder-gray-100"
                 />
                 <IoIosSearch className="absolute right-24 lg:right-28 top-4" />
                 <button type="submit" className="btn btn-primary join-item">

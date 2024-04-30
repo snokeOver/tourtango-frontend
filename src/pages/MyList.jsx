@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const MyList = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
-  const { user, setBtnLoading } = useContext(AuthContext);
+  const { user, setBtnLoading, currTheme } = useContext(AuthContext);
   const [loadedSpots, setLoadedSpot] = useState([]);
   const [pageLoading, setPageLoading] = useState(false);
   const [pageUpdate, setPageUpdate] = useState(false);
@@ -58,6 +58,7 @@ const MyList = () => {
   // Handle the update spot
   const handleDeleteSpot = (id) => {
     Swal.fire({
+      background: currTheme === "dark" ? "#1f2937 " : "",
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -74,6 +75,7 @@ const MyList = () => {
             setPageUpdate(true);
             setBtnLoading(false);
             Swal.fire({
+              background: currTheme === "dark" ? "#1f2937 " : "",
               title: "Deleted!",
               text: "Your tourist spot has been Deleted.",
               icon: "success",
@@ -131,6 +133,7 @@ const MyList = () => {
     postData.cost = `$${formData.cost}`;
 
     Swal.fire({
+      background: currTheme === "dark" ? "#1f2937 " : "",
       target: document.getElementById("form-modal"),
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -151,6 +154,7 @@ const MyList = () => {
             setPageUpdate(true);
             setBtnLoading(false);
             Swal.fire({
+              background: currTheme === "dark" ? "#1f2937 " : "",
               title: "Updated!",
               text: "Your tourist spot has been Updated.",
               icon: "success",
@@ -169,6 +173,7 @@ const MyList = () => {
 
   return (
     <>
+      {window.scrollTo(0, 0)}
       <Helmet>
         <title>My List | TourTango</title>
       </Helmet>

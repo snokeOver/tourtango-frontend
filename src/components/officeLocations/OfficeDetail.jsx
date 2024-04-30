@@ -1,3 +1,7 @@
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { LuClock4 } from "react-icons/lu";
 const OfficeDetail = ({ officeDetail }) => {
   return (
     <>
@@ -15,19 +19,39 @@ const OfficeDetail = ({ officeDetail }) => {
       >
         <div className=" flex flex-col gap-6">
           <div className="mb-2">
-            <p className="font-semibold">Address:</p>
+            <p className="font-semibold flex items-center gap-2">
+              <span>
+                <FaLocationDot />
+              </span>
+              <span>Address:</span>
+            </p>
             <p dangerouslySetInnerHTML={{ __html: officeDetail.address }}></p>
           </div>
           <div className="mb-2">
-            <p className="font-semibold">Phone:</p>
+            <p className="font-semibold flex items-center gap-2">
+              <span>
+                <FaPhoneAlt />
+              </span>
+              <span>Phone:</span>
+            </p>
             <p>{officeDetail.phone}</p>
           </div>
           <div className="mb-2">
-            <p className="font-semibold">Email:</p>
+            <p className="font-semibold flex items-center gap-2">
+              <span>
+                <MdEmail />
+              </span>
+              <span>Email:</span>
+            </p>
             <p>{officeDetail.email}</p>
           </div>
           <div className="mb-2">
-            <p className="font-semibold">Hours:</p>
+            <p className="font-semibold flex items-center gap-2">
+              <span>
+                <LuClock4 />
+              </span>
+              <span>Hours:</span>
+            </p>
             <p>{officeDetail.hours}</p>
           </div>
         </div>
