@@ -4,7 +4,6 @@ import PrimaryButton from "../components/sharedComponents/PrimaryButton";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { goToTop } from "../services/goToTop";
 import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const AddSpot = () => {
@@ -109,7 +108,6 @@ const AddSpot = () => {
 
   return (
     <>
-      {goToTop()}
       <Helmet>
         <title>Add Spot | TourTango</title>
       </Helmet>

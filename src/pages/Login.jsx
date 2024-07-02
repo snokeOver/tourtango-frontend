@@ -7,10 +7,9 @@ import SpinnerAtButton from "../components/sharedComponents/SpinnerAtButton.jsx"
 import GithubButton from "../components/sharedComponents/GithubButton.jsx";
 import GoogleButton from "../components/sharedComponents/GoogleButton.jsx";
 import { Helmet } from "react-helmet-async";
-import LoginSlidder from "../components/sharedComponents/login/LoginSlidder.jsx";
 import SideSectionWithSlidder from "../components/sharedComponents/login/SideSectionWithSlidder.jsx";
 import LogoWithTitle from "../components/sharedComponents/login/LogoWithTitle.jsx";
-import { goToTop } from "../services/goToTop.js";
+
 import GoToTopBtn from "../components/sharedComponents/GoToTopBtn.jsx";
 
 const Login = () => {
@@ -112,7 +111,7 @@ const Login = () => {
   // Handle All successful firebase Login
   const firebaseLoginSuccess = (result) => {
     setToastMsg("Login Successful  !");
-    const user = result.user;
+
     setPageLoading(false);
     navigate(location?.state ? location.state : "/");
   };
@@ -127,7 +126,6 @@ const Login = () => {
 
   return (
     <>
-      {goToTop()}
       <Helmet>
         <title>Login | TourTango</title>
       </Helmet>

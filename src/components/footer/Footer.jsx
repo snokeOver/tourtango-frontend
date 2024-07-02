@@ -82,7 +82,6 @@ const Footer = () => {
             <div className="relative">
               <input
                 name="email"
-                readOnly
                 type="text"
                 placeholder="Email . . . "
                 className="input  input-bordered  input-md w-full max-w-xs "

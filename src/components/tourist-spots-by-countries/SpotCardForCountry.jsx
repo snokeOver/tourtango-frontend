@@ -1,6 +1,6 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { BsFillEyeFill, BsCart4 } from "react-icons/bs";
-import { RxAvatar } from "react-icons/rx";
+
 import { TfiMoney } from "react-icons/tfi";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 

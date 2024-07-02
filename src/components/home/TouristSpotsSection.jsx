@@ -20,6 +20,7 @@ const TouristSpotsSection = () => {
   // handle the show Tourist Spot button
   const handleShowDetailsBtn = (id) => {
     navigate(`/spot-details/${id}`);
+    return goToTop();
   };
 
   // Handle the add to cart button

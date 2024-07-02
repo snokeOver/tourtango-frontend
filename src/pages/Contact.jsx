@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../providers/AuthProvider";
 import PrimaryButton from "../components/sharedComponents/PrimaryButton";
-import { goToTop } from "../services/goToTop";
+
 import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const Contact = () => {
@@ -33,9 +33,8 @@ const Contact = () => {
   };
   return (
     <>
-      {goToTop()}
       <Helmet>
-        <title>Contact | Tourango</title>
+        <title>Contact | TourTango</title>
       </Helmet>
       <div className="md:container bg-base-100 mx-2 md:mx-auto  overflow-hidden">
         <div

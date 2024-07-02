@@ -42,14 +42,14 @@ const Wrapper = styled.section`
 
   .top-btn {
     font-size: 1.4rem;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     color: #fff;
 
     border-radius: 50%;
     position: fixed;
-    bottom: 5rem;
-    right: 5rem;
+    bottom: 2.5rem;
+    right: 1.5rem;
     z-index: 999;
     display: flex;
     justify-content: center;

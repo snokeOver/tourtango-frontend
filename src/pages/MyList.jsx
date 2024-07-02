@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import PageSkeleton from "../components/sharedComponents/PageSkeleton";
 import PrimaryButton from "../components/sharedComponents/PrimaryButton";
 import { Link } from "react-router-dom";
-import { goToTop } from "../services/goToTop";
+
 import GoToTopBtn from "../components/sharedComponents/GoToTopBtn";
 
 const MyList = () => {
@@ -175,7 +175,6 @@ const MyList = () => {
 
   return (
     <>
-      {goToTop()}
       <Helmet>
         <title>My List | TourTango</title>
       </Helmet>

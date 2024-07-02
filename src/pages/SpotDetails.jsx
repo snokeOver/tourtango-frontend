@@ -74,7 +74,6 @@ const SpotDetails = () => {
 
   return (
     <>
-      {goToTop()}
       <Helmet>
         <title>Spot Details | TourTango</title>
       </Helmet>

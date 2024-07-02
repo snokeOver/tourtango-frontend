@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../components/sharedComponents/SectionTitle";
@@ -68,14 +68,13 @@ const TourSpots = () => {
 
   return (
     <>
-      {goToTop()}
       <Helmet>
         <title>Tourist Spots | TourTango</title>
       </Helmet>
       {pageLoading ? (
         <PageSkeleton />
       ) : (
-        <div className="md:container bg-base-100  mx-2 md:mx-auto px-2 w-full overflow-hidden">
+        <div className="md:container bg-base-100   md:mx-auto px-2  overflow-hidden">
           <SectionTitle
             title="Popular Tourist Spot in Asia"
             subTitle="Asia is a continent brimming with diverse and breathtaking tourist destinations, vibrant cultures."

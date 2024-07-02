@@ -19,7 +19,7 @@ const OfficeDetail = ({ officeDetail }) => {
       >
         <div className=" flex flex-col gap-6">
           <div className="mb-2">
-            <p className="font-semibold flex items-center gap-2">
+            <p className="font-semibold flex items-center gap-2 mt-5 sm:mt-0">
               <span>
                 <FaLocationDot />
               </span>
